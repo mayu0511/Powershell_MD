@@ -1,0 +1,462 @@
+<Configuration>
+
+  <Environments>
+
+    <!-- ================= DEV ================= -->
+    <Environment name="DEV">
+      <Modules>
+        <Module name="CoreIssue">
+          <BasePath>DBBSetup\DBBSetup-DEV\BatchScripts\CoreIssue</BasePath>
+          <Files>
+            <File>RunccCI.bat</File>
+            <File>SetupCI.bat</File>
+            <File>SetupCIPy.ini</File>
+          </Files>
+          <Server>QADFS01</Server>
+          <StaticDestination>BatchScripts\CoreIssue</StaticDestination>
+        </Module>
+
+        <Module name="CoreAuth">
+          <BasePath>DBBSetup\DBBSetup-DEV\BatchScripts\CoreAuth</BasePath>
+          <Files>
+            <File>CoreAuthSetup.bat</File>
+            <File>RunccCoreAuth.bat</File>
+          </Files>
+          <Server>QADFS01</Server>
+          <StaticDestination>BatchScripts\CoreAuth</StaticDestination>
+        </Module>
+
+        <Module name="KMS">
+          <BasePath>KMS\KMM</BasePath>
+          <Files>
+            <File>App.config</File>
+            <File>KMServiceConfig.exe.config</File>
+            <File>KMService.exe.config</File>
+          </Files>
+          <Server>QADEVKMS01</Server>
+          <StaticDestination>KMS</StaticDestination>
+        </Module>
+
+        <Module name="WCF">
+          <BasePath>WebServer</BasePath>
+          <Files>
+            <File>CoreCardServices\connectionStrings.config</File>
+            <File>CoreCardServices\Web.config</File>
+            <File>WCF\Web.config</File>
+            <File>WCF\configuration\appSettings.config</File>
+            <File>WCF\configuration\connectionStrings.config</File>
+          </Files>
+          <Server>QADEVWCF01</Server>
+          <StaticDestination>WCFServer</StaticDestination>
+        </Module>
+
+        <Module name="WebServer">
+          <BasePath>WebServer\DEV</BasePath>
+          <Files>
+            <File>Services\CoreCardServicesGateway\Web.config</File>
+            <File>Services\CoreCardServicesGateway\log4net.config</File>
+            <File>CoreCredit\Web.config</File>
+            <File>CoreCredit\log4net.config</File>
+            <File>DBBWEB\Web.config</File>
+            <File>Services\Web.config</File>
+          </Files>
+          <Server>QAWEB01</Server>
+          <StaticDestination>WebServer</StaticDestination>
+        </Module>
+
+        <Module name="TraceFiles">
+          <BasePath>TraceFiles</BasePath>
+          <Files>
+            <File>CoreIssue\dbbtrace.ini</File>
+            <File>CoreAuth\dbbtrace.ini</File>
+          </Files>
+          <Server>QADEVAPP01</Server>
+          <StaticDestination>TraceFiles</StaticDestination>
+        </Module>
+      </Modules>
+    </Environment>
+
+    <!-- ================= QA ================= -->
+    <Environment name="QA">
+      <Modules>
+        <Module name="CoreIssue">
+          <BasePath>DBBSetup\DBBSetup-QA\BatchScripts\CoreIssue</BasePath>
+          <Files>
+            <File>RunccCI.bat</File>
+            <File>SetupCI.bat</File>
+            <File>SetupCIPy.ini</File>
+          </Files>
+          <Server>QADFS01</Server>
+          <StaticDestination>BatchScripts\CoreIssue</StaticDestination>
+        </Module>
+
+        <Module name="CoreAuth">
+          <BasePath>DBBSetup\DBBSetup-QA\BatchScripts\CoreAuth</BasePath>
+          <Files>
+            <File>CoreAuthSetup.bat</File>
+            <File>RunccCoreAuth.bat</File>
+          </Files>
+          <Server>QADFS01</Server>
+          <StaticDestination>BatchScripts\CoreAuth</StaticDestination>
+        </Module>
+
+        <Module name="KMS">
+          <BasePath>KMS\KMM</BasePath>
+          <Files>
+            <File>App.config</File>
+            <File>KMServiceConfig.exe.config</File>
+            <File>KMService.exe.config</File>
+          </Files>
+          <Server>QAKMS01</Server>
+          <StaticDestination>KMS</StaticDestination>
+        </Module>
+
+        <Module name="WCF">
+          <BasePath>WebServer</BasePath>
+          <Files>
+            <File>CoreCardServices\connectionStrings.config</File>
+            <File>CoreCardServices\Web.config</File>
+            <File>WCF\Web.config</File>
+            <File>WCF\configuration\appSettings.config</File>
+            <File>WCF\configuration\connectionStrings.config</File>
+          </Files>
+          <Server>QAWCF01</Server>
+          <StaticDestination>WCFServer</StaticDestination>
+        </Module>
+
+        <Module name="WebServer">
+          <BasePath>WebServer\QA</BasePath>
+          <Files>
+            <File>Services\CoreCardServicesGateway\Web.config</File>
+            <File>Services\CoreCardServicesGateway\log4net.config</File>
+            <File>CoreCredit\Web.config</File>
+            <File>CoreCredit\log4net.config</File>
+            <File>DBBWEB\Web.config</File>
+            <File>Services\Web.config</File>
+          </Files>
+          <Server>QAWEB01</Server>
+          <StaticDestination>WebServer</StaticDestination>
+        </Module>
+
+        <Module name="TraceFiles">
+          <BasePath>TraceFiles</BasePath>
+          <Files>
+            <File>CoreIssue\dbbtrace.ini</File>
+            <File>CoreAuth\dbbtrace.ini</File>
+          </Files>
+          <Server>QAApp01</Server>
+          <StaticDestination>TraceFiles</StaticDestination>
+        </Module>
+      </Modules>
+    </Environment>
+
+    <!-- ================= PTR ================= -->
+    <Environment name="PTR">
+      <Modules>
+        <Module name="CoreIssue">
+          <BasePath>DBBSetup\DBBSetup-PTR\BatchScripts\CoreIssue</BasePath>
+          <Files>
+            <File>RunccCI.bat</File>
+            <File>SetupCI.bat</File>
+            <File>SetupCIPy.ini</File>
+          </Files>
+          <Server>QADFS01</Server>
+          <StaticDestination>BatchScripts\CoreIssue</StaticDestination>
+        </Module>
+
+        <Module name="CoreAuth">
+          <BasePath>DBBSetup\DBBSetup-PTR\BatchScripts\CoreAuth</BasePath>
+          <Files>
+            <File>CoreAuthSetup.bat</File>
+            <File>RunccCoreAuth.bat</File>
+          </Files>
+          <Server>QADFS01</Server>
+          <StaticDestination>BatchScripts\CoreAuth</StaticDestination>
+        </Module>
+
+        <Module name="KMS">
+          <BasePath>KMS\KMM</BasePath>
+          <Files>
+            <File>App.config</File>
+            <File>KMServiceConfig.exe.config</File>
+            <File>KMService.exe.config</File>
+          </Files>
+          <Server>QAPTRKMS01</Server>
+          <StaticDestination>KMS</StaticDestination>
+        </Module>
+
+        <Module name="WCF">
+          <BasePath>WebServer</BasePath>
+          <Files>
+            <File>CoreCardServices\connectionStrings.config</File>
+            <File>CoreCardServices\Web.config</File>
+            <File>WCF\Web.config</File>
+            <File>WCF\configuration\appSettings.config</File>
+            <File>WCF\configuration\connectionStrings.config</File>
+          </Files>
+          <Server>QAPTRWCF01</Server>
+          <StaticDestination>WCFServer</StaticDestination>
+        </Module>
+
+        <Module name="WebServer">
+          <BasePath>WebServer\PTR</BasePath>
+          <Files>
+            <File>Services\CoreCardServicesGateway\Web.config</File>
+            <File>Services\CoreCardServicesGateway\log4net.config</File>
+            <File>CoreCredit\Web.config</File>
+            <File>CoreCredit\log4net.config</File>
+            <File>DBBWEB\Web.config</File>
+            <File>Services\Web.config</File>
+          </Files>
+          <Server>QAWEB01</Server>
+          <StaticDestination>WebServer</StaticDestination>
+        </Module>
+
+        <Module name="TraceFiles">
+          <BasePath>TraceFiles</BasePath>
+          <Files>
+            <File>CoreIssue\dbbtrace.ini</File>
+            <File>CoreAuth\dbbtrace.ini</File>
+          </Files>
+          <Server>QAPTRAPP01</Server>
+          <StaticDestination>TraceFiles</StaticDestination>
+        </Module>
+      </Modules>
+    </Environment>
+
+    <!-- ================= UATP ================= -->
+    <Environment name="UATP">
+      <Modules>
+        <Module name="CoreIssue">
+          <BasePath>DBBSetup\DBBSetup-UATP\BatchScripts\CoreIssue</BasePath>
+          <Files>
+            <File>RunccCI.bat</File>
+            <File>SetupCI.bat</File>
+            <File>SetupCIPy.ini</File>
+          </Files>
+          <Server>QADFS01</Server>
+          <StaticDestination>BatchScripts\CoreIssue</StaticDestination>
+        </Module>
+
+        <Module name="CoreAuth">
+          <BasePath>DBBSetup\DBBSetup-UATP\BatchScripts\CoreAuth</BasePath>
+          <Files>
+            <File>CoreAuthSetup.bat</File>
+            <File>RunccCoreAuth.bat</File>
+          </Files>
+          <Server>QADFS01</Server>
+          <StaticDestination>BatchScripts\CoreAuth</StaticDestination>
+        </Module>
+
+        <Module name="KMS">
+          <BasePath>KMS\KMM</BasePath>
+          <Files>
+            <File>App.config</File>
+            <File>KMServiceConfig.exe.config</File>
+            <File>KMService.exe.config</File>
+          </Files>
+          <Server>QAUATPKMS01</Server>
+          <StaticDestination>KMS</StaticDestination>
+        </Module>
+
+        <Module name="WCF">
+          <BasePath>WebServer</BasePath>
+          <Files>
+            <File>CoreCardServices\connectionStrings.config</File>
+            <File>CoreCardServices\Web.config</File>
+            <File>WCF\Web.config</File>
+            <File>WCF\configuration\appSettings.config</File>
+            <File>WCF\configuration\connectionStrings.config</File>
+          </Files>
+          <Server>QAUATPWCF01</Server>
+          <StaticDestination>WCFServer</StaticDestination>
+        </Module>
+
+        <Module name="WebServer">
+          <BasePath>WebServer\UATP</BasePath>
+          <Files>
+            <File>Services\CoreCardServicesGateway\Web.config</File>
+            <File>Services\CoreCardServicesGateway\log4net.config</File>
+            <File>CoreCredit\Web.config</File>
+            <File>CoreCredit\log4net.config</File>
+            <File>DBBWEB\Web.config</File>
+            <File>Services\Web.config</File>
+          </Files>
+          <Server>QAWEB01</Server>
+          <StaticDestination>WebServer</StaticDestination>
+        </Module>
+
+        <Module name="TraceFiles">
+          <BasePath>TraceFiles</BasePath>
+          <Files>
+            <File>CoreIssue\dbbtrace.ini</File>
+            <File>CoreAuth\dbbtrace.ini</File>
+          </Files>
+          <Server>QAUATPAPP01</Server>
+          <StaticDestination>TraceFiles</StaticDestination>
+        </Module>
+      </Modules>
+    </Environment>
+
+    <!-- ================= PERF ================= -->
+    <Environment name="PERF">
+      <Modules>
+        <Module name="CoreIssue">
+          <BasePath>DBBSetup\DBBSetup-PERF\BatchScripts\CoreIssue</BasePath>
+          <Files>
+            <File>RunccCI.bat</File>
+            <File>SetupCI.bat</File>
+            <File>SetupCIPy.ini</File>
+          </Files>
+          <Server>PERF1FS01</Server>
+          <StaticDestination>BatchScripts\CoreIssue</StaticDestination>
+        </Module>
+
+        <Module name="CoreAuth">
+          <BasePath>DBBSetup\DBBSetup-PERF\BatchScripts\CoreAuth</BasePath>
+          <Files>
+            <File>CoreAuthSetup.bat</File>
+            <File>RunccCoreAuth.bat</File>
+          </Files>
+          <Server>PERF1FS01</Server>
+          <StaticDestination>BatchScripts\CoreAuth</StaticDestination>
+        </Module>
+
+        <Module name="KMS">
+          <BasePath>KMS\KMM</BasePath>
+          <Files>
+            <File>App.config</File>
+            <File>KMServiceConfig.exe.config</File>
+            <File>KMService.exe.config</File>
+          </Files>
+          <Server>PERF1KMS04</Server>
+          <StaticDestination>KMS</StaticDestination>
+        </Module>
+
+        <Module name="WCF">
+          <BasePath>WebServer</BasePath>
+          <Files>
+            <File>CoreCardServices\connectionStrings.config</File>
+            <File>CoreCardServices\Web.config</File>
+            <File>WCF\Web.config</File>
+            <File>WCF\configuration\appSettings.config</File>
+            <File>WCF\configuration\connectionStrings.config</File>
+          </Files>
+          <Server>PERF1WCF01</Server>
+          <StaticDestination>WCFServer</StaticDestination>
+        </Module>
+
+        <Module name="WebServer">
+          <BasePath>WebServer\PERF1</BasePath>
+          <Files>
+            <File>CoreCardServicesGateway\Web.config</File>
+            <File>CoreCardServicesGateway\log4net.config</File>
+            <File>CoreCredit\Web.config</File>
+            <File>CoreCredit\log4net.config</File>
+            <File>DBBWEB\Web.config</File>
+            <File>Services\Web.config</File>
+          </Files>
+          <Server>PERFWEB01</Server>
+          <StaticDestination>WebServer</StaticDestination>
+        </Module>
+
+        <Module name="TraceFiles">
+          <BasePath>TraceFiles</BasePath>
+          <Files>
+            <File>CoreIssue\dbbtrace.ini</File>
+            <File>CoreAuth\dbbtrace.ini</File>
+          </Files>
+          <Server>PERF1APP01</Server>
+          <StaticDestination>TraceFiles</StaticDestination>
+        </Module>
+      </Modules>
+    </Environment>
+
+    <!-- ================= PROD ================= -->
+    <Environment name="PROD">
+      <Modules>
+        <Module name="CoreIssue">
+          <BasePath>DBBSetup\BatchScripts\CoreIssue</BasePath>
+          <Files>
+            <File>RunccCI.bat</File>
+            <File>SetupCI.bat</File>
+            <File>SetupCIPy.ini</File>
+          </Files>
+          <Server>PRODDRFS01</Server>
+          <StaticDestination>BatchScripts\CoreIssue</StaticDestination>
+        </Module>
+
+        <Module name="CoreAuth">
+          <BasePath>DBBSetup\BatchScripts\CoreAuth</BasePath>
+          <Files>
+            <File>CoreAuthSetup.bat</File>
+            <File>RunccCoreAuth.bat</File>
+          </Files>
+          <Server>PRODDRFS01</Server>
+          <StaticDestination>BatchScripts\CoreAuth</StaticDestination>
+        </Module>
+
+        <Module name="KMS">
+          <BasePath>KMS_3.X</BasePath>
+          <Files>
+            <File>App.config</File>
+            <File>KMServiceConfig.exe.config</File>
+            <File>KMService.exe.config</File>
+          </Files>
+          <Server>PRODDRKMS04</Server>
+          <StaticDestination>KMS</StaticDestination>
+        </Module>
+
+        <Module name="WCF">
+          <BasePath>WebServer</BasePath>
+          <Files>
+            <File>CoreCardServices\connectionStrings.config</File>
+            <File>CoreCardServices\Web.config</File>
+            <File>WCF\Web.config</File>
+            <File>WCF\configuration\appSettings.config</File>
+            <File>WCF\configuration\connectionStrings.config</File>
+          </Files>
+          <Server>PRODDRWCF01</Server>
+          <StaticDestination>WCFServer</StaticDestination>
+        </Module>
+
+        <Module name="WebServer">
+          <BasePath>WebServer\CREDIT</BasePath>
+          <Files>
+            <File>Services\CoreCardServicesGateway\Web.config</File>
+            <File>Services\CoreCardServicesGateway\log4net.config</File>
+            <File>CoreCredit\Web.config</File>
+            <File>CoreCredit\log4net.config</File>
+            <File>DBBWEB\Web.config</File>
+            <File>Services\Web.config</File>
+          </Files>
+          <Server>PROD2WEB01</Server>
+          <StaticDestination>WebServer</StaticDestination>
+        </Module>
+
+        <Module name="TraceFiles">
+          <BasePath>TraceFiles</BasePath>
+          <Files>
+            <File>CoreIssue\dbbtrace.ini</File>
+            <File>CoreAuth\dbbtrace.ini</File>
+          </Files>
+          <Server>PRODDRAPP01</Server>
+          <StaticDestination>TraceFiles</StaticDestination>
+        </Module>
+      </Modules>
+    </Environment>
+
+  </Environments>
+
+  <!-- ============================
+       FTP Config
+       ============================ -->
+  <FtpConfig>
+    <Host>www.corecard.com</Host>
+    <User>genuser</User>
+    <Pass>2Vx+)4!F+#</Pass>
+    <RemoteRoot>/RajaK/Config-Comp</RemoteRoot>
+    <DownloadRoot>Config-Comp\</DownloadRoot>
+  </FtpConfig>
+
+</Configuration>

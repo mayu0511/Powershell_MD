@@ -1,0 +1,12 @@
+--------DB Size Check-------
+SELECT 
+    db.name AS DatabaseName,
+    SUM(mf.size) / 128.0 AS TotalSizeMB -- Total size in MB
+FROM 
+    sys.master_files mf
+INNER JOIN 
+    sys.databases db ON mf.database_id = db.database_id
+GROUP BY 
+    db.name
+ORDER BY 
+    TotalSizeMB DESC;

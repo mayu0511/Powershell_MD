@@ -1,0 +1,1 @@
+﻿aws s3api list-objects-v2 --bucket corecard-pod2-perf-us-east-1-config-files --prefix "Incoming/multi-"

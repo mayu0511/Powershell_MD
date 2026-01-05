@@ -1,0 +1,48 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250312205344
+Username: cc-pod2-dev\ccgs-app-rw
+RunAs User: cc-pod2-dev\ccgs-app-rw
+Machine: CCBATE1DEVB2 (Microsoft Windows NT 10.0.14393.0)
+Host Application: Powershell.exe -ExecutionPolicy Bypass -File D:\DBBSetup\MonitoringScript\DiskSpaceMonitor\DiskSpaceMonitor.ps1 -Verb RunAs
+Process ID: 5992
+PSVersion: 5.1.14393.7693
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14393.7693
+BuildVersion: 10.0.14393.7693
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is .\Logs\DiskSpaceMonitor_03-12-2025-20-53-44.log
+Checking Server Type: svc
+
+Checking disk space on: ccsvce1devb1
+
+Checking disk space on: ccsvce1devb4
+
+Checking disk space on: ccsvce1devb2
+
+Checking disk space on: ccsvce1devb3
+Disk Usage and Space Monitor generated successfully: C:\Temp\DiskUsageandSpaceMonitor.html
+PS>TerminatingError(Send-MailMessage): "Cannot validate argument on parameter 'SmtpServer'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again."
+Send-MailMessage : Cannot validate argument on parameter 'SmtpServer'. The argument is null or empty. Provide an 
+argument that is not null or empty, and then try the command again.
+At D:\DBBSetup\MonitoringScript\DiskSpaceMonitor\DiskSpaceMonitor.ps1:99 char:30
++ Send-MailMessage -SmtpServer $SMTPServer -Port 587 `
++                              ~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Send-MailMessage], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,Microsoft.PowerShell.Commands.SendMailMessage
+Send-MailMessage : Cannot validate argument on parameter 'SmtpServer'. The argument is null or empty. Provide an
+argument that is not null or empty, and then try the command again.
+At D:\DBBSetup\MonitoringScript\DiskSpaceMonitor\DiskSpaceMonitor.ps1:99 char:30
++ Send-MailMessage -SmtpServer $SMTPServer -Port 587 `
++                              ~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Send-MailMessage], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,Microsoft.PowerShell.Commands.SendMailMessage
+
+Email Notification Sent with Report in Body
+Browser closed automatically after sending the email
+PS>$global:?
+True

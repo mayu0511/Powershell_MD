@@ -1,0 +1,21 @@
+ccgs-app-ro                    	   	app_secret_!702@CC             APP RO
+ccgs-bastion-ro                		rdp_secret_!702@CC             Bastion RO
+ccgs-bastion-rw                		rdp_secret_!702@CC             Bastion RW
+cc-jazz-dev\ccgs-sql-rw       		service_R_17026CC              DEV
+cc-jazz-dev\ccgs-web-rw        		w3b_admin_secret_17026CC       DEV | UAT2 | QA
+cc-jazz-dev\ccgs-rpts-svc     		rs_secret_17026CC              DEV | UAT2 | QA
+cc-jazz-dev\ccgs-sql-svc       		db_app_secret_17026CC          DEV | UAT2 | QA
+cc-jazz-dev\ccgs-app-rw        		app_secret_17026CC             DEV | UAT2 | QA
+cc-jazz-dev\ccgs-kms-rw        		kms_admin_secret_17026CC       DEV | UAT2 | QA
+ccgs-app-service               		app_secret_!702@CC             File Splitter
+ccgs-kms-ro                   		km$_ro_secret_!702@CC          KMS RO
+ccgs-kms-rw                    		km$_@dmin_secret_!702@CC       KMS RW
+ccgs-app-rw                    		@pp_secret_!702@CC             PATUAT|PERF
+cc-pod2-qa\ccgs-app-rw         		app_secret_!702@CC             QA|DEV|PATQA
+ccgs-rpts-svc                  		rs_secret_!702@CC              Report Server
+ccgs-sql-rw                    		db_rw_secret_!702@CC           SQL RW
+ccgs-sql-svc                   		db_app-secret_!702@CC          SQL SVC
+cc-pod2-uat\ccgsweb-rw        		w3b_rw_secret_!702@CC          UAT
+cc-jazz-uat2\ccgs-sql-rw       		db_rw_secret_17026CC           UAT2
+ccgs-web-ro                    		w3b_rdponly_secret_!702@CC     WEB RO
+ccgs-web-rw                    		w3b_admin_secret_!702@CC       WEB RW

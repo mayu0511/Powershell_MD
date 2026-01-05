@@ -1,0 +1,93 @@
+wmic cpu get NumberOfCores,NumberOfLogicalProcessors
+
+VC KEY
+5dc0e462-6167-4128-8476-36c70ab975b9
+
+Services Instalaltion 
+sc create WebServerHealth binPath= "D:\WebServers\ServersHealth\Service\WebServerHealth.exe" DisplayName= "Web Server Health" description= "This service monitors the health 
+
+Services UNInstalaltion 
+sc delete WebServerHealth
+
+Hmack installation
+C:\Windows\Microsoft.NET\Framework\v4.0.30319>regasm /codebase C:\KHMACGeneratorLibrary\KHMACGeneratorLibrary.dll
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319>regasm /codebase C:\KHMACGeneratorLibrary\KHMACGeneratorLibrary.dll
+
+SHA3HashLibrary Instyallation
+C:\Windows\Microsoft.NET\Framework\v4.0.30319>regasm /codebase c:\PublishSHA3HashLibrary\SHA3HashLibraryNet.dll
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319>regasm /codebase c:\PublishSHA3HashLibrary\SHA3HashLibraryNet.dll
+
+
+----------Ziped file and folder validation
+do {
+                $ccpackagepath = Read-Host "Enter the folder path (without 'Package.zip')"
+                if (-not $ccpackagepath) {
+                    Write-log "  Folder path cannot be empty." -ForegroundColor Red
+                } elseif (-not (Test-Path $ccpackagepath)) {
+                    Write-log "  Folder path does not exist: $ccpackagepath" -ForegroundColor Red
+                    $ccpackagepath = $null
+                }
+            } while (-not $ccpackagepath)
+            $hashOutputFile = "$ccpackagepath\CCpackage_hash_$timestamp.txt"            
+            Write-Log "Task 1 Started - Generate hash of Package.zip (On CCPackage CoreCard Side)" -ForegroundColor Green
+            Write-Log "Target path: $ccpackagepath"
+            Write-Log "Output hash file: $hashOutputFile"
+ 
+            $zipFile = Join-Path $ccpackagepath "Package.zip"
+ 
+            if (Test-Path $zipFile) {
+                Write-Log "Package.zip found at: $zipFile"
+                try {
+                    Write-Log "Computing SHA256 hash..."
+                    $hash = Get-FileHash -Path $zipFile -Algorithm SHA256
+                    $hash.Hash | Out-File -FilePath $hashOutputFile -Encoding utf8
+                    Write-Log "SHA256 hash saved to file: $hashOutputFile"
+                    Write-Log "Hash value: $($hash.Hash)"
+                } catch {
+                    Write-Log "ERROR: Failed to compute hash. Exception: $_" -ForegroundColor Red
+                }
+            } else {
+                Write-Log "ERROR: Package.zip not found in path: $ccpackagepath" -ForegroundColor Red
+            }
+			
+==========Clear All vArilabe
+Get-Variable | Where-Object {
+    ($_.Options -band [System.Management.Automation.ScopedItemOptions]::Constant) -eq 0 -and
+    $_.Name -notmatch '^PS(|Item|Cmd|Script|Version|Home|ISE|Console|Prompt)'
+} | ForEach-Object {
+    Remove-Variable -Name $_.Name -Force -ErrorAction SilentlyContinue
+}
+
+------------
+====Unblock Files----
+dir D:\ -Recurse | Unblock-File
+--------------
+
+========Downlaod All file from s3 bucket
+    aws s3 cp s3://<your-s3-bucket-name>/ <local-destination-path> --recursive
+	
+=====extract private key
+	gpg -a --export-secret-keys keyIDNumber > exportedKeyFilename.asc
+=========
+$dotnetRuntimes = & dotnet --list-runtimes
+[System.Runtime.InteropServices.RuntimeInformation]::FrameworkDescription
+(Get-Item "C:\Program Files\IIS\Asp.Net Core Module\V2\aspnetcorev2.dll").VersionInfo.FileVersion
+
+
+##---Find file in direcotory---
+
+dir "E:\Upload\Powershell_MD\WEB_Health_Check_API\2-Service-*" /s
+
+#------KHMAC Ragistration Validation-----------
+New-PSDrive -Name "HKCR" -PSProvider Registry -Root "HKEY_CLASSES_ROOT"
+
+Get-ChildItem -Path 'HKCR:\CLSID\{506D6B2B-74B1-3E28-A612-4F104082A7BD}'
+(Get-ItemProperty -Path 'HKCR:\CLSID\{506D6B2B-74B1-3E28-A612-4F104082A7BD}\InprocServer32'). Class
+
+=====NTLM and Kerberose connection----
+select top 1000 * from sys.dm_exec_connections with(nolock) order by connect_time desc
+select auth_scheme, count(1) from sys.dm_exec_connections group by auth_scheme
+
+===========RPTD Scripst======
+Run in CMD command  "osql -S CCRPTLIST1 -d CCJAZZ_Rpt_CoreIssue -E -Q "SELECT top 10 * FROM CCJAZZ_Rpt_CoreIssue..Version order by entryid desc"
+Run in CMD command  "bcp CCJazz_Rpt_Coreissue.dbo.Version out bcptestfile.txt -S CCRPTLIST1 -T"

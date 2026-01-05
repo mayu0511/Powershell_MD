@@ -1,0 +1,1 @@
+﻿Get-ChildItem -Recurse "D:\DBBSetup\Dump\MasterCard\IPMSettlement\Incoming\OUT" | Where { ! $_.PSIsContainer } | Select Name  >> D:\DBBSetup\Dump\MasterCard\IPMSettlement\Incoming\Backup\Testing\Out.txt

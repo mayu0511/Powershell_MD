@@ -1,0 +1,122 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250314020000
+Username: cc-pod2-dev\ccgs-app-rw
+RunAs User: cc-pod2-dev\ccgs-app-rw
+Machine: CCBATE1DEVB2 (Microsoft Windows NT 10.0.14393.0)
+Host Application: Powershell.exe -ExecutionPolicy Bypass -File D:\DBBSetup\MonitoringScript\DiskSpaceMonitor\DiskSpaceMonitor.ps1 -Verb RunAs
+Process ID: 4696
+PSVersion: 5.1.14393.7693
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14393.7693
+BuildVersion: 10.0.14393.7693
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is .\Logs\DiskSpaceMonitor_03-14-2025-02-00-00.log
+Checking Server Type: svc
+
+Checking disk space on: ccsvce1devb1
+
+Checking disk space on: ccsvce1devb4
+
+Checking disk space on: ccsvce1devb2
+
+Checking disk space on: ccsvce1devb3
+Checking Server Type: iss
+
+Checking disk space on: ccisse1devb1
+
+Checking disk space on: ccisse1devb2
+Checking Server Type: aut
+
+Checking disk space on: ccaute1devb1
+
+Checking disk space on: ccaute1devb4
+
+Checking disk space on: ccaute1devb2
+
+Checking disk space on: ccaute1devb3
+Checking Server Type: tnp
+
+Checking disk space on: cctnpe1devb4
+
+Checking disk space on: cctnpe1devb10
+
+Checking disk space on: cctnpe1devb13
+
+Checking disk space on: cctnpe1devb1
+
+Checking disk space on: cctnpe1devb5
+
+Checking disk space on: cctnpe1devb8
+
+Checking disk space on: cctnpe1devb12
+
+Checking disk space on: cctnpe1devb15
+
+Checking disk space on: cctnpe1devb3
+
+Checking disk space on: cctnpe1devb6
+
+Checking disk space on: cctnpe1devb9
+
+Checking disk space on: cctnpe1devb7
+
+Checking disk space on: cctnpe1devb14
+
+Checking disk space on: cctnpe1devb2
+
+Checking disk space on: cctnpe1devb11
+Checking Server Type: awf
+
+Checking disk space on: ccawfe1devb7
+
+Checking disk space on: ccawfe1devb10
+
+Checking disk space on: ccawfe1devb1
+
+Checking disk space on: ccawfe1devb2
+
+Checking disk space on: ccawfe1devb6
+
+Checking disk space on: ccawfe1devb9
+
+Checking disk space on: ccawfe1devb3
+
+Checking disk space on: ccawfe1devb4
+
+Checking disk space on: ccawfe1devb5
+
+Checking disk space on: ccawfe1devb8
+Checking Server Type: src
+
+Checking disk space on: ccsrce1devb1
+
+Checking disk space on: ccsrce1devb2
+Checking Server Type: snk
+
+Checking disk space on: ccsnke1devb2
+
+Checking disk space on: ccsnke1devb1
+Checking Server Type: bat
+
+Checking disk space on: ccbate1devb4
+
+Checking disk space on: ccbate1devb1
+
+Checking disk space on: ccbate1devb3
+
+Checking disk space on: ccbate1devb2
+Disk Usage and Space Monitor generated successfully: C:\Temp\DiskUsageandSpaceMonitor.html
+Report file found: C:\Temp\DiskUsageandSpaceMonitor.html
+Email Notification Sent with Report in Body
+Email Notification Sent with Attachment
+PS>$global:?
+True
+**********************
+Windows PowerShell transcript end
+End time: 20250314020050
+**********************

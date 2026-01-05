@@ -1,0 +1,1 @@
+﻿aws s3 ls s3://corecard-pod4-prod-batch-vendorfiles-us-east-1/prod/BAT/CCBATE1PROD4/IPMSettlement/ |sort | Where { ! $_.PSIsContainer } | Select-String -Pattern MCI.*  >> D:\DBBSetup\Dump\MasterCard\IPMSettlement\Incoming\Backup\Testing\S3.txt
