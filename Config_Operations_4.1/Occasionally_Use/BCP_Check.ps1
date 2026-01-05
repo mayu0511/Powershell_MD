@@ -55,7 +55,7 @@ ForEach ($ServerType in $ServerTypeList) {
 
 $ServerList | Out-Host
 
-if ($ServerList -eq $NULL) {
+if ($NULL -eq $ServerList) {
     Write-Host "No Server in the given criteria... Please try again"
     exit
 }
