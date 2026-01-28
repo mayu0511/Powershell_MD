@@ -15,6 +15,6 @@ foreach ($ComputerName in $ServerList) {
         $principal = New-ScheduledTaskPrincipal -UserId "cc-pod2-perf\gmsa-app-svc$" -LogonType Password -RunLevel Highest
         Register-ScheduledTask -TaskName "Task_TNP" -Action $action -Trigger $trigger -Principal $principal -Force
 
-        Write-Host "✅ Task_TNP created on $env:COMPUTERNAME" -ForegroundColor Green
+        Write-Host "Task_TNP created on $env:COMPUTERNAME" -ForegroundColor Green
     }
 }

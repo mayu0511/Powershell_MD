@@ -1,4 +1,9 @@
-﻿Clear-Host
+﻿====================================================================
+#--Added RDP Module--#
+#Version :: V10 | Date:: 4-Dec-2025#
+# Latest Updated by : Netra Chettri
+=========================================================================
+Clear-Host
 
 $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $defaultLogDir = "C:\Logs"
@@ -323,7 +328,7 @@ while ($true) {
                 Write-Host "3. WEB_SETUP"
                 Write-Host "4. EWEB_SETUP"
                 Write-Host "5. KMS_SETUP"
-				Write-Host "6. RPD_SETUP"
+                Write-Host "6. RPD_SETUP"
                 Write-Host "99. Exit script"
                 return (Read-Host "Enter your choice")
             }
@@ -408,7 +413,7 @@ while ($true) {
             function Copy-EWEBSetup {
                 $sourceBase = "D:\Package\UnZipPkg\Package"
                 $ewebSetupMap = @{        
-                    "CoreCredit"   = "C:\CopyFiles\EWEB_SETUP\CoreCredit"
+                    "CoreCredit"   = "C:\CopyFiles\EWEB_SETUP\WebServer\CoreCredit"
                 }
             
                 foreach ($folder in $ewebSetupMap.Keys) {
@@ -452,26 +457,28 @@ while ($true) {
             
                 Write-Log "KMS_SETUP complete.`n" -ForegroundColor Green
             }
-            
-			function Copy-RpdSetup {
+
+            function Copy-RPDSetup {
                 $sourceBase = "D:\Package\UnZipPkg\Package"
-                $RPDSetupMap = @{
-					"CC_Python"    = "C:\CopyFiles\RPD_SETUP\CC_Python"
-                    "PlatformCode" = "C:\CopyFiles\RPD_SETUP\PlatformCode"
-					"Datafeed"     = "C:\CopyFiles\RPD_SETUP\ReportDelivery\DataFeed"
-					"DataReports"  = "C:\CopyFiles\RPD_SETUP\ReportDelivery\DataReports"
-					"ReportDelivery" = "C:\CopyFiles\RPD_SETUP\ReportDelivery\ReportDelivery"
+                $rpdSetupMap = @{        
+                    "ReportDelivery"   = "C:\CopyFiles\RPD_SETUP\ReportDelivery\"
+                    "DataFeed"   = "C:\CopyFiles\RPD_SETUP\DataFeed\"
+                    "DataReports"   = "C:\CopyFiles\RPD_SETUP\DataReports\"
+                    "CC_Python"   = "C:\CopyFiles\RPD_SETUP\CC_Python\"
+                    "PlatformCode"   = "C:\CopyFiles\RPD_SETUP\PlatformCode\"
                 }
             
                 foreach ($folder in $rpdSetupMap.Keys) {
                     $src = Join-Path $sourceBase $folder
                     $dst = $rpdSetupMap[$folder]
+                    
             
                     if (Test-Path $src) {
                         Write-Log "Copying '$folder' to '$dst'..."
                         robocopy $src $dst /E /NFL /NDL /NJH /NJS /NP /MT:8 /R:1 /W:1
-                        #Write-Log "Copied: $folder"
                         Handle-CopyResult -Context "Copying RPD_SETUP Module"
+
+                        #Write-Log "Copied: $folder"
                     } else {
                         Write-Log "Source folder not found: $folder" -ForegroundColor Yellow
                     }
@@ -479,6 +486,7 @@ while ($true) {
             
                 Write-Log "RPD_SETUP complete.`n" -ForegroundColor Green
             }
+            
             # ========= MAIN EXECUTION LOOP =========
             Write-Log "Package Location: D:\Package\UnZipPkg\Package\" -ForegroundColor Cyan
             Write-Log "Task 4 Started - Copy package to Staging dir" -ForegroundColor Cyan
@@ -557,11 +565,11 @@ while ($true) {
                         
                         Remove-Variable serverName -ErrorAction SilentlyContinue
                     }
-					"6" {            
+                    
+                    "6" {            
                         $serverName = $env:COMPUTERNAME.ToLower()            
-                        if (($serverName -like "*rpd*"))
-                        {
-                            Copy-RpdSetup
+                        if ($serverName -like "*rpd*") {
+                            Copy-RPDSetup
                         } else {
                             Write-Log "Skipping RPD_SETUP. Server '$serverName' is not authorized." -ForegroundColor Red
                             exit
@@ -689,7 +697,7 @@ while ($true) {
             function Check-WCFModules {
                 $basePackagePath = "D:\Package\UnZipPkg\Package"
                 $wcfModules = @{
-                        "WCFServer" = "C:\CopyFiles\WCF_SETUP\WCFServer"                   
+                        "WCFServer" = "C:\CopyFiles\WCF_SETUP\WebServer"                   
                 }
             
                 foreach ($module in $wcfModules.Keys) {
@@ -717,7 +725,7 @@ while ($true) {
             function Check-EWEB_SETUP {
                 $basePackagePath = "D:\Package\UnZipPkg\Package"
                 $ewebModules = @{
-                        "CoreCredit"  = "C:\CopyFiles\WEB_SETUP\CoreCredit"                        
+                        "CoreCredit"  = "C:\CopyFiles\WEB_SETUP\WebServer\CoreCredit"                        
                 }
             
                 foreach ($module in $ewebModules.Keys) {
@@ -741,25 +749,25 @@ while ($true) {
                     CheckSum -Staging_Path $StagingPath -Package_Path $pkgPath -ModuleName $module
                 }
             }
-			function Check-RpdSetupModules {
-				$basePackagePath = "D:\Package\UnZipPkg\Package"
-				$rpdModules = @{
-					"CC_Python"      = "C:\CopyFiles\RPD_SETUP\CC_Python"
-					"PlatformCode"   = "C:\CopyFiles\RPD_SETUP\PlatformCode"
-					"ReportDelivery\DataFeed"     = "C:\CopyFiles\RPD_SETUP\ReportDelivery\DataFeed"
-					"ReportDelivery\DataReports"  = "C:\CopyFiles\RPD_SETUP\ReportDelivery\DataReports"
-					"ReportDelivery\ReportDelivery" = "C:\CopyFiles\RPD_SETUP\ReportDelivery\ReportDelivery"
-    }
 
-				foreach ($modulePath in $rpdModules.Keys) {
-					$pkgPath = Join-Path $basePackagePath $modulePath
-					$stagingPath = $rpdModules[$modulePath]
-					$moduleName = Split-Path $modulePath -Leaf
-					Write-Log "`nChecking module: $moduleName" -ForegroundColor Cyan
-					CheckSum -Staging_Path $stagingPath -Package_Path $pkgPath -ModuleName $moduleName
-    }
-}
-
+            function Check-RPD_SETUP {
+                $basePackagePath = "D:\Package\UnZipPkg\Package"
+                $rpdModules = @{
+                    "ReportDelivery"   = "C:\CopyFiles\RPD_SETUP\ReportDelivery\"
+                    "DataFeed"   = "C:\CopyFiles\RPD_SETUP\DataFeed\"
+                    "DataReports"   = "C:\CopyFiles\RPD_SETUP\DataReports\"
+                    "CC_Python"   = "C:\CopyFiles\RPD_SETUP\CC_Python\"
+                    "PlatformCode"   = "C:\CopyFiles\RPD_SETUP\PlatformCode\"                      
+                }
+            
+                foreach ($module in $rpdModules.Keys) {
+                    $pkgPath = Join-Path $basePackagePath $module
+                    $StagingPath = $rpdModules[$module]
+                    Write-Log "`nChecking RPD module: $module" -ForegroundColor Cyan
+                    CheckSum -Staging_Path $StagingPath -Package_Path $pkgPath -ModuleName $module
+                }
+            }
+            
             function Show-MainMenu {
                 Write-Host ""
                 Write-Host "===== CHECKSUM MENU ====="
@@ -768,7 +776,7 @@ while ($true) {
                 Write-Host "3. Check WEB_SETUP modules"
                 Write-Host "4. Check EWEB_SETUP modules"
                 Write-Host "5. Check KMS_SETUP modules"
-				Write-Host "6. Check RPD_SETUP modules"
+                Write-Host "6. Check RPD_SETUP modules"
                 Write-Host "99. Exit script & verify Final summary"
                 return (Read-Host "Enter your choice")
             }
@@ -795,7 +803,7 @@ while ($true) {
                     "3" { Check-WEBModules }
                     "4" { Check-EWEB_SETUP }
                     "5" { Check-KMS_SETUP }
-					"6" { Check-RpdSetupModules }
+                    "6" { Check-RPD_SETUP }
                     "99" {
                         Write-Log "Exiting script..." -ForegroundColor Magenta
                         break
@@ -973,25 +981,25 @@ while ($true) {
                         CheckSum -Runtime_Path $RuntimePath -Package_Path $pkgPath -ModuleName $module
                     }
                 }
-				function Check-RpdSetupModules {
-					$basePackagePath = "D:\Package\UnZipPkg\Package"
-					$rpdModules = @{
-						"CC_Python"      = "D:\CC_Python"
-						"PlatformCode"   = "D:\PlatformCode"
-						"ReportDelivery\DataFeed"     = "D:\ReportDelivery\DataFeed"
-						"ReportDelivery\DataReports"  = "D:\ReportDelivery\DataReports"
-						"ReportDelivery\ReportDelivery" = "D:\ReportDelivery\ReportDelivery"
-					}
 
-					foreach ($modulePath in $rpdModules.Keys) {
-						$pkgPath = Join-Path $basePackagePath $modulePath
-						$runtimePath = $rpdModules[$modulePath]
-						$moduleName = Split-Path $modulePath -Leaf
-						Write-Log "`nChecking module: $moduleName" -ForegroundColor Cyan
-						CheckSum -Runtime_Path $runtimePath -Package_Path $pkgPath -ModuleName $moduleName
-					}
-				}
-
+                function Check-RPD_SETUP {
+                    $basePackagePath = "D:\Package\UnZipPkg\Package\ReportDelivery"
+                    $rpdModules = @{
+                        "ReportDelivery" =  "D:\ReportDelivery\ReportDelivery"
+                        "DataFeed" =  "D:\ReportDelivery\DataFeed"
+                        "DataReports" ="D:\ReportDelivery\DataReports" 
+                        "CC_Python"    = "D:\CC_Python"
+                        "PlatformCode" = "D:\PlatformCode"                      
+                    }
+                
+                    foreach ($module in $rpdModules.Keys) {
+                        $pkgPath = Join-Path $basePackagePath $module
+                        $RuntimePath = $rpdModules[$module]
+                        Write-Log "`nChecking RPD module: $module" -ForegroundColor Cyan
+                        CheckSum -Runtime_Path $RuntimePath -Package_Path $pkgPath -ModuleName $module
+                    }
+                }
+                
                 function Show-MainMenu {
                     Write-Host ""
                     Write-Host "===== CHECKSUM MENU ====="
@@ -1000,7 +1008,7 @@ while ($true) {
                     Write-Host "3. Check WEB_SETUP modules"
                     Write-Host "4. Check EWEB_SETUP modules"
                     Write-Host "5. Check KMS_SETUP modules"
-					Write-Host "6. Check RPD_SETUP modules"
+                    Write-Host "6. Check RPD_SETUP modules"
                     Write-Host "99. Exit script & verify Final summary"
                     return (Read-Host "Enter your choice")
                 }
@@ -1027,7 +1035,7 @@ while ($true) {
                         "3" { Check-WEBModules }
                         "4" { Check-EWEB_SETUP }
                         "5" { Check-KMS_SETUP }
-						"6" { Check-RpdSetupModules }
+                        "6" { Check-RPD_SETUP }
                         "99" {
                             Write-Log "Exiting script..." -ForegroundColor Magenta
                             break

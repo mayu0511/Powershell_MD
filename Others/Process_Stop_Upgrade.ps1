@@ -58,7 +58,7 @@ $AvailabilityZones
 $AvailabilityZone = Read-Host "Type Availability Zones your choice $AvailabilityZones or * for all zones"
 
 $AvailabilityZone
-$ServerTypeList = @('bat')
+$ServerTypeList = @('bat' ,'TNP', 'AWF')
 $ServerType = $Null
 $ServerList = @()
 
@@ -80,23 +80,23 @@ $reportFile = Join-Path $reportFolder "ProcessStop_$timestamp.html"
 $logFile    = Join-Path $reportFolder "ProcessStop_$timestamp.log"
 
 # --- Processes to stop ---
-# --- Processes to stop ---
+
 $processNames = @(
-    #"Rundbb_TNP.exe",
-   # "Rundbb_ETNP.exe",
-    #"Rundbb_AccountReinstate.exe",
-    #"Rundbb_CoreAuthAging.exe",
-    #"Rundbb_ACHCreatePIIRequest_Cookie1.exe",
-    #"Rundbb_ACHSendPIIRequest_Cookie1.exe",
-    ##"Rundbb_ACHCreatePIIRequest_Cookie2.exe",
-    #"Rundbb_ACHSendPIIRequest_Cookie2.exe",
-    #"Rundbb_PendingTxn.exe",
-    #"Rundbb_APJob.exe",
-    #"Rundbb_APIQueue.exe",
-    #"Rundbb_CBRCreatePIIRequest_Cookie1.exe",
-    #"Rundbb_CBRCreatePIIRequest_Cookie2.exe",
-    #"Rundbb_CBRSendPIIRequest_Cookie1.exe",
-    #"Rundbb_CBRSendPIIRequest_Cookie2.exe",
+    "Rundbb_TNP.exe",
+    "Rundbb_ETNP.exe",
+    "Rundbb_AccountReinstate.exe",
+    "Rundbb_CoreAuthAging.exe",
+    "Rundbb_ACHCreatePIIRequest_Cookie1.exe",
+    "Rundbb_ACHSendPIIRequest_Cookie1.exe",
+    "Rundbb_ACHCreatePIIRequest_Cookie2.exe",
+    "Rundbb_ACHSendPIIRequest_Cookie2.exe",
+    "Rundbb_PendingTxn.exe",
+    "Rundbb_APJob.exe",
+    "Rundbb_APIQueue.exe",
+    "Rundbb_CBRCreatePIIRequest_Cookie1.exe",
+    "Rundbb_CBRCreatePIIRequest_Cookie2.exe",
+    "Rundbb_CBRSendPIIRequest_Cookie1.exe",
+    "Rundbb_CBRSendPIIRequest_Cookie2.exe",
     "Rundbb_BillPayPayment.exe",
     "Rundbb_LockBox.exe",
     "Rundbb_AccountCreation.exe"
