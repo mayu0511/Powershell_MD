@@ -101,7 +101,7 @@ $ExpectedRecyclingPeriodicRestartTime = "1740"}
 elseif (($EnvironmentName -eq "prod" -or $EnvironmentName -eq "uat2" -or $EnvironmentName -eq "mock") -and ($Environmentattributon -eq "jazz")){
 $ExpectedWEBServerCount = "30"
 $ExpectedmaxProcesses = "16"
-$ExpectedPrivateMemoryLimit = "0"
+$ExpectedPrivateMemoryLimit = "819200"
 $ExpectedRecyclingPeriodicRestartTime = "1740"}
 $ExpectedServicesHandlerLogs = "D:\LOGs\ServicesHandlerLogs"
 $ExpectedCoreCardServicesLogs = "D:\LOGs\CoreCardServicesGateway"
