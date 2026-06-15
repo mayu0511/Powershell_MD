@@ -1,3 +1,5 @@
+D:\Logs\CoreCardServicesGateway\%property{log4net:HostName}_CoreCardServicesGateway_%processid.lo
+
 wmic cpu get NumberOfCores,NumberOfLogicalProcessors
 
 VC KEY
@@ -89,5 +91,5 @@ select top 1000 * from sys.dm_exec_connections with(nolock) order by connect_tim
 select auth_scheme, count(1) from sys.dm_exec_connections group by auth_scheme
 
 ===========RPTD Scripst======
-Run in CMD command  "osql -S CCRPTLIST1 -d CCJAZZ_Rpt_CoreIssue -E -Q "SELECT top 10 * FROM CCJAZZ_Rpt_CoreIssue..Version order by entryid desc"
-Run in CMD command  "bcp CCJazz_Rpt_Coreissue.dbo.Version out bcptestfile.txt -S CCRPTLIST1 -T"
+Run in CMD command ->osql -S ccrptlist1 -d ccgs_rpt_CoreIssue -E -Q "SELECT top 1 procdayend FROM ccgs_rpt_CoreIssue..arsystemaccounts with (nolock)"
+Run in CMD command ->  bcp CCGS_Rpt_Coreissue.dbo.Version out C:\Temp\bcptestfile.txt -S CCRPTLIST1 -T -c

@@ -153,7 +153,7 @@ $SecretObject = Get-SECSecretValue -secretid "ses-smtp-$EnvironmentName-secret"
 $SMTPUser = ($SecretObject.SecretString | ConvertFrom-Json).id
 $SMTPPassword= ($SecretObject.SecretString | ConvertFrom-Json).ses_smtp_password_v4
 $EmailSender = "$Environmentpod-$EnvironmentName-alerts@infra.marcus.com"
-$EmailReceiver =  @("POD3ConfigTeam@corecard.com", "PlatSD@corecard.com" ,"PODConfigTeam@corecard.com")
+$EmailReceiver =  @("POD3ConfigTeam@corecard.com", "PlatSD@corecard.com" ,"POD2ConfigTeam@corecard.com")
 $ReportFile = "C:\Temp\DiskUsageandSpaceMonitor.html"
 
 if (Test-Path $ReportFile) {

@@ -55,8 +55,8 @@ Break
 
 $AvailabilityZone
 
-$ServerTypeList = @('bat')
-#$ServerTypeList = @('bat','svc','iss','aut','src','snk','tnp','awf')
+#$ServerTypeList = @('bat')
+$ServerTypeList = @('svc','iss','aut','src','snk','tnp','awf')
 $ServerList = @()
 
 foreach ($ServerType in $ServerTypeList) {
@@ -118,7 +118,7 @@ foreach ($server in $ServerList) {
                     return "Invalid Condition"
                 }
             }
-        } -ArgumentList $ConditionSelected, "D:\BKP\Test\*", "D:\BKP\Tst2\shmem.bin", "D:\BKP\1" -ErrorAction Stop
+        } -ArgumentList $ConditionSelected, "D:\CC_runtime\*", "C:\corecard_services\shmem.bin", "D:\BKP\1" -ErrorAction Stop
 
         $ResultList += [PSCustomObject]@{
             ServerName = $server
