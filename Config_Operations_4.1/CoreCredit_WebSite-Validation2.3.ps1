@@ -4,6 +4,7 @@
 #======================================================================================================================
 
 Clear-Host
+Get-ChildItem D:\ -Recurse | Unblock-File
 $Module = "Web-CoreCredit"
 $ServerType = 'ew'
 $ThisServer = (Hostname).ToLower()

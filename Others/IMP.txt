@@ -1,4 +1,8 @@
-D:\Logs\CoreCardServicesGateway\%property{log4net:HostName}_CoreCardServicesGateway_%processid.lo
+sc managedaccount dbbstartupservice false
+
+Get-ChildItem D:\ -Recurse | Unblock-File
+
+D:\Logs\CoreCardServicesGateway\%property{log4net:HostName}_CoreCardServicesGateway_%processid.log
 
 wmic cpu get NumberOfCores,NumberOfLogicalProcessors
 
@@ -62,6 +66,8 @@ Get-Variable | Where-Object {
 
 ------------
 ====Unblock Files----
+Get-ChildItem D:\ -Recurse | Unblock-File
+
 dir D:\ -Recurse | Unblock-File
 --------------
 

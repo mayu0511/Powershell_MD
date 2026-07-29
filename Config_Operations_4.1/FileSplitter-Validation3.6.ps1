@@ -5,9 +5,8 @@
 # Latest Updated by : Rahul | Date :: 07 May-2026
 #======================================================================================================================
 
-dir D:\ -Recurse | Unblock-File
-
-Clear-Host
+Cear-Host
+Get-ChildItem D:\ -Recurse | Unblock-File
 
 # Clear all user-defined variables (excluding PowerShell internal ones)
 Get-Variable | Where-Object {

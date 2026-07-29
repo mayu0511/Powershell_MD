@@ -6,7 +6,9 @@
 #Batch Server Validation | Updated| VisualCronsJobsMonitor Service:: Rahul Bajpai
 # Version 1.6 | Batch Server Validation | Date:: 17-April-2026
 #=====================================================================================================================
+
 Clear-Host
+Get-ChildItem D:\ -Recurse | Unblock-File
 
 #------------------- Server & Region ------------------- 
 $ThisServer = $env:COMPUTERNAME.ToLower()
@@ -75,7 +77,7 @@ $SpecialPattern = 'b4|b24|g4|g24'
 
 Write-Host "Special Servers (IPM + VC Monitor check): $SpecialPattern" -ForegroundColor Yellow
 
-Read-Host "Verify server list and press Enter to continue"
+#Read-Host "Verify server list and press Enter to continue"
 
 #------------------- Remote Validation -------------------
 $option = New-PSSessionOption -ProxyAccessType NoProxyServer -OpenTimeout 20000

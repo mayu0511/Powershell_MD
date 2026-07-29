@@ -370,7 +370,9 @@ if ($zipConfirm -match '^[Yy]$') {
         "\Consolidated_Package\TraceFiles\CoreIssue\Log",
         "\Consolidated_Package\TraceFiles\CoreIssue\OrigionalFileBackup",
         "\Consolidated_Package\TraceFiles\CoreAuth\Log",
-        "\Consolidated_Package\TraceFiles\CoreAuth\OrigionalFileBackup"
+        "\Consolidated_Package\TraceFiles\CoreAuth\OrigionalFileBackup",
+        "\Consolidated_Package\CoreCredit\Web_Master.config",
+        "\Consolidated_Package\CoreCredit\Web_delta.config"
     )
 
     Write-Host "Deleting unwanted files/folders (confirmation required for each)..."

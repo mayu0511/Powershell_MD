@@ -6,6 +6,7 @@
 #======================================================================================================================
 
 Clear-Host
+Get-ChildItem D:\ -Recurse | Unblock-File
 
 $Module = "Processes-Status"
 $ServerTypes = 'SVC', 'ISS', 'AUT', 'SRC', 'SNK', 'TNP', 'AWF', 'BAT'

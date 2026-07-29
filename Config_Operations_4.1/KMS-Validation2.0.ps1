@@ -4,6 +4,7 @@
 #======================================================================================================================
 
 Clear-Host
+Get-ChildItem D:\ -Recurse | Unblock-File
 $Module = "KMS-Validation"
 $ServerType = 'kms'
 $ThisServer = (Hostname).ToLower()

@@ -1,0 +1,92 @@
+CoreAuthSetup.bat,
+TagName,PlaceholderValue
+SET SCALE_SERVER_HOST,CCWEB<SHORTREGION><ENV><Stack>1
+SET Enviroment,<SETUPENVIRONMENT>
+SET emKMSdefaultMachines,CCKMS<SHORTREGION><ENV><STACK>1 CCKMS<SHORTREGION><ENV><STACK>2
+SET emThalesConnectionAddrBase,<HSMENDPOINTIP>
+SET TLS12Required,<TLS12REQUIRED>
+SET Environment,<ENVIRONMENT_CC_VARIABLE>
+SET ICANumber,<ICANUMBER>
+SET GSINumber,<GSINUMBER>
+SET NetworkManagementInformationCode,<NETWORKMANAGEMENTINFORMATIONCODE>
+SetUp.py,
+MailFrom,"""<MailFrom>"""
+SERVERNAME,"""<SERVERNAME>"""
+RetailFileProcessingPOD,"""<RetailFileProcessingPOD>"""
+RetailAWS_region_name,"""<RetailAWS_region_name>"""
+POTBEnvironment,"""<POTBEnvironment>"""
+EnvironmentName,"""<EnvironmentName>"""
+POTBAWS_region_name,"""<POTBAWS_region_name>"""
+POD,<POD>
+SetupCI.bat,
+SET DB_Server_NAME,<DB_Server_NAME>
+SET SCALE_SERVER_HOST,CCWEB<SHORTREGION><ENV><Stack>1
+SET ExperianSetup,<EXPERIANSETUP>
+SET Enviroment,<SETUPENVIRONMENT>
+SET PlatPIIHubEnv,<PLATPIIENVN>
+SET PlatPIIHubTokenEnv,<PLATPIIENVN>
+SET PlatAutoRewardRedeem,<PLATPIIENVN>
+SET RelaxIssueStatusCheckForActivation,<RELAXISSUESTATUSCHECKFORACTIVATION>
+SET StatementDataQueueName,<StatementDataQueueName>
+SET emKMSdefaultMachines,CCKMS<SHORTREGION><ENV><STACK>1 CCKMS<SHORTREGION><ENV><STACK>2
+SET emThalesConnectionAddrBase,<HSMENDPOINTIP>
+SET PlatModelScore,<PLATPIIENVN>
+SET TokenRefreshCall,<TOKENREFRESHCALL>
+SET MailSender_StlRcn,<MailSender_StlRcn>
+SET SQSURL,<SQSURL>
+SET SQSS3Bucket,<SQSS3Bucket>
+SET SQSRegion,<SQSRegion>
+SET SQSSTSlink,<SQSSTSLink>
+SET SQSSTSRegion,<SQSSTSRegion>
+SET S3BucketName,<S3BucketName>
+SET S3Region,<S3Region>
+SET S3STSRegion,<S3STSRegion>
+SET S3URLAlert,<S3URLAlert>
+SET S3RegionAlert,<S3RegionAlert>
+SET SQSRegionAlert,<SQSRegionAlert>
+SET SQSCustomURL,<SQSCustomURL>
+SetupCIPy.ini,
+POD,<POD>
+emKMSdefaultMachines,<emKMSdefaultMachines>
+emKMSdefaultMachinesDR,<emKMSdefaultMachinesDR>
+DB_Server_NAME,<DB_Server_NAME>
+DB_Server_NAME_RPT,<DB_Server_NAME_RPT>
+Cnst_API_url,<Cnst_API_url>
+alert_email_sender,<alert_email_sender>
+CBREmailFrom,<CBREmailFrom>
+MailSender_StlRcn,<MailSender_StlRcn>
+EnvironmentName,<EnvironmentName>
+POTBEnvironment,<POTBEnvironment>
+Corecredit Web.config,
+<add key,"""ReportServerPath"" value=""<REPORTSERVERURL>"" />"
+<add key,"""LetterServerPath"" value=""<REPORTSERVERURL>"" />"
+<endpoint address,"""<WCFCUSTOMERSERVICEURL>"" binding=""wsHttpBinding"" bindingConfiguration=""WcfAPIEndPointDefault"" contract=""CustomerService.ICustomerService"" name=""WcfAPIEndPointDefault"">"
+<endpoint address,"""<WCFDBBSERVICEURL>"" binding=""wsHttpBinding"" bindingConfiguration=""DbbAPIEndPointDefault"" contract=""dbbService.IdbbService"" name=""DbbAPIEndPointDefault"">"
+CoreIssue Web.config,
+<add key,"""ServerIP"" value=""<LBAppServersFQDN>"" />"
+Services Web.config,
+<add key,"""ServerIP"" value=""<LBAppServersFQDN>"" />"
+CorecardService connectionStrings.config,
+<add name,"""CoreAuth"" providerName=""System.Data.SqlClient"" connectionString=""server=<DB_Server_NAME>; database=CCGS_CoreAuth; Integrated Security=SSPI; Min Pool Size=1; Max Pool Size=150"" />"
+<add name,"""CoreIssue"" providerName=""System.Data.SqlClient"" connectionString=""server=<DB_Server_NAME>; database=CCGS_CoreIssue; Integrated Security=SSPI; Min Pool Size=1; Max Pool Size=150"" />"
+<add name,"""CoreLibrary"" providerName=""System.Data.SqlClient"" connectionString=""server=<DB_Server_NAME>; database=CCGS_CoreLibrary; Integrated Security=SSPI; Min Pool Size=1; Max Pool Size=150"" />"
+NetworkManagemt appsettings.json,
+"""DefaultConnection"": ""Server","<DB_Server_NAME>;Database=CCGS_CoreIssue;Trusted_Connection=True;"","
+"""CoreAuthConnection"": ""Server","<DB_Server_NAME>;Database=CCGS_CoreAuth;Integrated Security=SSPI;Encrypt=false;MultipleActiveResultSets=true;Connection Timeout=30;"","
+"""CoreIssueConnection"": ""Server","<DB_Server_NAME>;Database=CCGS_CoreIssue;Integrated Security=SSPI;Trusted_Connection=True;Encrypt=false;MultipleActiveResultSets=true;Connection Timeout=30"""
+WCF appSettings.config,
+<add key,"""KMSDefaultMachines"" value=""CCKMS<SHORTREGION><ENV><STACK>1 CCKMS<SHORTREGION><ENV><STACK>2"" />"
+<add key,"""dbbHandlerRoot"" value=""<DBBHANDLERROOT>"" />"
+WCF connectionStrings.config,
+connectionString,"""server=<DB_Server_NAME>;database=CCGS_CoreIssue;Integrated Security=SSPI;""/>"
+connectionString,"""server=<DB_Server_NAME>;database=CCGS_CoreLibrary;Integrated Security=SSPI;""/>"
+connectionString,"""server=<DB_Server_NAME>;database=CCGS_CoreCredit;Integrated Security=SSPI;""/>"
+connectionString,"""server=<DB_Server_NAME>;database=CCGS_CoreApp;Integrated Security=SSPI;""/>"
+connectionString,"""server=<DB_Server_NAME>;database=CCGS_CoreCollect;Integrated Security=SSPI;""/>"
+connectionString,"""server=<Reports_DB_Server_NAME>;database=CCGS_RPT_CoreIssue;Integrated Security=SSPI;""/>"
+connectionString,"""server=<DB_Server_NAME>;database=CCGS_CoreIssue;Integrated Security=SSPI; Min Pool Size=1;Max Pool Size=1000;Applicationintent=readonly""  />"
+connectionString,"""server=<DB_Server_NAME>;database=CCGS_CoreLibrary;Integrated Security=SSPI;Min Pool Size=1;Max Pool Size=1000;Applicationintent=readonly""  />"
+connectionString,"""server=<DB_Server_NAME>;database=CCGS_CoreCredit;Integrated Security=SSPI;Min Pool Size=1;Max Pool Size=1000;Applicationintent=readonly""  />"
+ReportDelivery WFRunReports.exe.config,
+<value>,<value><REPORTSERVERURL>/reportingservice.asmx</value>
+<value>,<value><REPORTSERVERURL>/ReportExecution2005.asmx</value>

@@ -1,4 +1,6 @@
 ﻿Clear-Host
+Get-ChildItem D:\ -Recurse | Unblock-File
+
 $ThisServer = (Hostname).ToLower()
 if($ThisServer -match 'e1')
 {$Region = "us-east-1"
@@ -58,7 +60,7 @@ $RunJob = $NULL
 
 $ConfigOperationsForm                    = New-Object system.Windows.Forms.Form
 $ConfigOperationsForm.ClientSize         = '500,500'
-$ConfigOperationsForm.text               = "Config Operations"
+$ConfigOperationsForm.text               = "Config Operations By Utsav Tyagi"
 $ConfigOperationsForm.BackColor          = "#ffffff"
 $ConfigOperationsForm.TopMost            = $false
 $ConfigOperationsForm.StartPosition      = 'CenterScreen'

@@ -3,8 +3,10 @@
 # Version 1.0 | Certificate  Validation | Date:: 19-Aug-2025
 #======================================================================================================================
 
-    dir D:\ -Recurse | Unblock-File
+Get-ChildItem D:\ -Recurse | Unblock-File
+
 Clear-Host
+
 $ThisServer = (hostname).ToLower()   # or use $env:COMPUTERNAME
 if ($ThisServer -match 'e1') {
     $Region = "us-east-1"

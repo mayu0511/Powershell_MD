@@ -1,6 +1,6 @@
 ﻿######################################################################################################################
 # MIP Connection Test   | DEVELOPED BY:: Mahendra Dwivedi
-# Version 1.0 | MIP Connection Test for  Source And Sink Servers | Date:: 17-April-2026
+# Version 1.2 | MIP Connection Test for Source And Sink Servers | Date:: 17-April-2026
 #=============================================================================================================================================
 
 Clear-Host
@@ -17,16 +17,35 @@ if ($ThisServer -match 'e1') {
 $AWSVariables = (aws ec2 describe-instances --query "Reservations[*].Instances[*].{AvailabilityZone:Placement.AvailabilityZone,IpAddress:PrivateIpAddress,Type:InstanceType,Name:Tags[?Key=='Name']|[0].Value,Status:State.Name,Environment:Tags[?Key=='environment']|[0].Value,Stack:Tags[?Key=='stack']|[0].Value,Attribution:Tags[?Key=='attribution']|[0].Value}" --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values='$ThisServer'" "Name=availability-zone,Values='*'" --region $Region | ConvertFrom-Json)
 
 $EnvironmentName = $AWSVariables.Environment.ToLower()
-
 $EnvironmentStack = ($AWSVariables.Stack.ToLower())[0]
+
+# --- Fetch POD value from AWS tag ---
+try {
+    $Pod = (aws ec2 describe-instances `
+        --filters "Name=tag:Name,Values=$ThisServer" `
+        --region $Region `
+        --query "Reservations[*].Instances[*].Tags[?Key=='pod'].Value" `
+        --output text).Trim().ToLower()
+
+    if (-not $Pod) {
+        throw "POD value is empty"
+    }
+
+    Write-Host "POD: $Pod"
+}
+catch {
+    Write-Host "ERROR: Failed to detect POD - $_"
+    exit
+}
+# ------------------------------------
+
 $AvailabilityZonesDefaultServerType = "tnp"
 $AvailabilityZones = ((aws ec2 describe-instances --query "Reservations[*].Instances[*].{AvailabilityZone:Placement.AvailabilityZone,IpAddress:PrivateIpAddress,Type:InstanceType,Name:Tags[?Key=='Name']|[0].Value,Status:State.Name}" --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values='*$AvailabilityZonesDefaultServerType$ShortRegion$EnvironmentName$EnvironmentStack*'" "Name=availability-zone,Values='*'" --region $Region | ConvertFrom-Json).AvailabilityZone) | Get-Unique
-
 
 $AvailabilityZone = Read-Host "Type Availability Zones your choice $AvailabilityZones or * for all zones"
 $AvailabilityZone
 
-$ServerTypeList = @('src' , 'snk')
+$ServerTypeList = @('src', 'snk')
 $ServerList = @()
 
 ForEach ($ServerType in $ServerTypeList) {
@@ -37,9 +56,7 @@ ForEach ($ServerType in $ServerTypeList) {
     }, @{
         n = "serial"; e = {
             if ($_.Name -match '(\d+)$') {
-    [int]$matches[1]
-
-            } else {
+                [int]$matches[1]
             }
         }
     } | Sort-Object -Property serial, Name)
@@ -52,69 +69,25 @@ if ($null -eq $ServerList) {
     exit
 }
 
-
 $ServerList = $ServerList | Where-Object { $_.Name } | Select-Object -ExpandProperty Name
 Read-Host "Please verify the server list and press Enter to continue or Stop the script"
 
-Clear-Host
-
 $Results = @()
 
-# ========================
-# AUTO DETECT FROM HOSTNAME
-# ========================
-$ThisServer = (hostname).ToLower()
-
-# ENV
-if ($ThisServer -match "patqa") {
-    $EnvironmentName = "patqa"
-}
-elseif ($ThisServer -match "patuat") {
-    $EnvironmentName = "patuat"
-}
-elseif ($ThisServer -match "prod") {
-    $EnvironmentName = "prod"
-}
-
-# REGION
-if ($ThisServer -match "e1") {
-    $ShortRegion = "e1"
-}
-elseif ($ThisServer -match "w2") {
-    $ShortRegion = "w2"
-}
-
-# STACK
-if ($ThisServer -match "pod2") {
-    $EnvironmentStack = "pod2"
-}
-elseif ($ThisServer -match "pod4") {
-    $EnvironmentStack = "pod4"
-}
-
-Write-Host "ENV: $EnvironmentName | REGION: $ShortRegion | STACK: $EnvironmentStack"
-Write-Host "---------------------------------------------"
-
-# ========================
-# SERVER LOOP
-# ========================
 foreach ($computername in $ServerList) {
 
     try {
-        $option = New-PSSessionOption -ProxyAccessType NoProxyServer 
+        $option = New-PSSessionOption -ProxyAccessType NoProxyServer
 
-        $output = Invoke-Command -ComputerName $computername `
-            -SessionOption $option `
-            -ErrorAction SilentlyContinue `
-            -ArgumentList $EnvironmentName, $ShortRegion, $EnvironmentStack `
-            -ScriptBlock {
+        # Pass $Pod instead of $EnvironmentStack into the remote ScriptBlock
+        $output = Invoke-Command -ComputerName $computername -SessionOption $option -ErrorAction SilentlyContinue -ArgumentList $EnvironmentName, $ShortRegion, $Pod -ScriptBlock {
 
-            param($envName, $region, $stack)
+            param($envName, $region, $pod)
 
             $mipList = @()
             $port = $null
 
-            switch ($envName) {
+            switch ($envName.ToLower()) {
 
                 "patqa" {
                     $mipList = @(
@@ -132,56 +105,49 @@ foreach ($computername in $ServerList) {
                     $port = 7034
                 }
 
-                "prod" {
+               "prod" {
 
-                    if ($region -eq "e1") {
-                        $mipList = @(
-                            "prod.dc11-36a.mips.infra.marcus.com",
-                            "prod.dc11-36b.mips.infra.marcus.com"
-                        )
-                    }
-                    elseif ($region -eq "w2") {
-                        $mipList = @(
-                            "prod.se3-36c.mips.infra.marcus.com",
-                            "prod.se3-36d.mips.infra.marcus.com"
-                        )
-                    }
+    if ($region -eq "e1") {
+        $mipList = @(
+            "prod.dc11-36a.mips.infra.marcus.com",
+            "prod.dc11-36b.mips.infra.marcus.com"
+        )
+    }
+    elseif ($region -eq "w2") {
+        $mipList = @(
+            "prod.se3-36c.mips.infra.marcus.com",
+            "prod.se3-36d.mips.infra.marcus.com"
+        )
+    }
 
-                    # SIMPLE PORT LOGIC
-                    if ($stack -match "pod2") {
-                        $port = 7003
-                    }
-                    elseif ($stack -match "pod4") {
-                        $port = 7004
-                    }
-                }
-            }
+    # Explicit POD-to-port mapping for prod
+    if ($pod -eq "pod2") {
+        $port = 7003
+    }
+    elseif ($pod -eq "pod4") {
+        $port = 7004
+    }}
+    else {
+        Write-Host "WARNING: Unknown POD value '$pod' for prod environment. No port assigned." -ForegroundColor Yellow
+        return
+    }
+    }
 
             $result = @()
 
-            if ($port -and $mipList.Count -gt 0) {
-                foreach ($mip in $mipList) {
+            foreach ($mip in $mipList) {
+                $test = Test-NetConnection -ComputerName $mip -Port $port -WarningAction SilentlyContinue
 
-                    $test = Test-NetConnection -ComputerName $mip -Port $port -WarningAction SilentlyContinue
-
-                    $result += [PSCustomObject]@{
-                        "MIP Name" = $mip
-                        "Port"     = $port
-                        "Status"   = if ($test.TcpTestSucceeded) { "Success" } else { "Failed" }
-                    }
-                }
-            }
-            else {
                 $result += [PSCustomObject]@{
-                    "MIP Name" = "N/A"
-                    "Port"     = "-"
-                    "Status"   = "Invalid Config"
+                    "MIP Name" = $mip
+                    "Port"     = $port
+                    "Status"   = $test.TcpTestSucceeded
                 }
             }
 
             return $result
         }
-
+        
         foreach ($item in $output) {
             $Results += [PSCustomObject]@{
                 "Server Name" = $computername
@@ -190,60 +156,60 @@ foreach ($computername in $ServerList) {
                 "Status"      = $item.Status
             }
         }
-
-    } catch {
+        }
+    
+    catch {
         $Results += [PSCustomObject]@{
             "Server Name" = $computername
             "MIP Name"    = "N/A"
             "Port"        = "-"
             "Status"      = "Failed"
         }
-    }
-}
-
-# ========================
-# DISPLAY OUTPUT
-# ========================
-$Results | Format-Table -AutoSize
-
-# ========================
-# HTML REPORT
-# ========================
-
-$ReportPath = "C:\Temp\MIPS_Report.html"
-
-# Add color column
-$HtmlData = $Results | Select-Object `
-    "Server Name",
-    "MIP Name",
-    "Port",
-    @{Name="Status";Expression={
-        if ($_.Status -eq "Success") {
-            "<span style='color:green;font-weight:bold;'>Success</span>"
-        }
-        elseif ($_.Status -eq "Failed") {
-            "<span style='color:red;font-weight:bold;'>Failed</span>"
-        }
-        else {
-            "<span style='color:orange;font-weight:bold;'>Invalid Config</span>"
-        }
     }}
 
-# HTML Style
+$ReportPath = "$env:TEMP\MIP_Telnet_Report.html"
+
 $style = @"
 <style>
-body { font-family: Arial; font-size: 12px; }
+body { font-family: Arial; }
 table { border-collapse: collapse; width: 100%; }
-th { background-color: #333; color: white; padding: 8px; text-align: left; }
-td { border: 1px solid #ddd; padding: 6px; }
-tr:nth-child(even) { background-color: #f2f2f2; }
+th, td { border: 1px solid black; padding: 6px; text-align: left; }
+th { background-color: #333; color: white; }
+.true { background-color: #c6efce; }
+.false { background-color: #ffc7ce; }
 </style>
 "@
 
-$HtmlReport = $HtmlData | ConvertTo-Html -Title "MIPS Telnet Connectivity Report" -Head $style | Out-String
+$rows = foreach ($r in $Results) {
+    $statusClass = if ($r.Status -eq $true) { "true" } else { "false" }
+    "<tr class='$statusClass'>
+        <td>$($r.'Server Name')</td>
+        <td>$($r.'MIP Name')</td>
+        <td>$($r.Port)</td>
+        <td>$($r.Status)</td>
+    </tr>"
+}
 
-# Fix HTML rendering issue
-$HtmlReport = $HtmlReport -replace '&lt;', '<' -replace '&gt;', '>'
+$html = @"
+<html>
+<head>
+<title>MIPS Telnet Report</title>
+$style
+</head>
+<body>
+<h2>MIPS Telnet Connectivity Report</h2>
+<table>
+<tr>
+<th>Server Name</th>
+<th>MIP Name</th>
+<th>Port</th>
+<th>Status</th>
+</tr>
+$rows
+</table>
+</body>
+</html>
+"@
 
-$HtmlReport | Out-File $ReportPath
+$html | Out-File $ReportPath
 Start-Process $ReportPath

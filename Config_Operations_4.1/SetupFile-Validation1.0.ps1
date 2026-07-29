@@ -1,4 +1,5 @@
 ﻿Clear-Host
+Get-ChildItem D:\ -Recurse | Unblock-File
 $Module = "App-Setup"
 $ServerTypes = 'svc', 'iss', 'aut', 'src', 'snk', 'awf', 'tnp', 'bat'
 #$ServerTypes = 'svc','bat'

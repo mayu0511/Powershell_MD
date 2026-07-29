@@ -4,6 +4,7 @@
 #=====================================================================================================================
 
 Clear-Host
+Get-ChildItem D:\ -Recurse | Unblock-File
 
 $ThisServer = (hostname).ToLower()
 if ($ThisServer -match 'e1') {
@@ -22,7 +23,7 @@ $AWSVariables = (aws ec2 describe-instances --query "Reservations[*].Instances[*
 $EnvironmentName = $AWSVariables.Environment.ToLower()
 $EnvironmentAttribution = $AWSVariables.Attribution.ToLower()
 
-if ($EnvironmentAttribution -eq "cookie") {
+<<#if ($EnvironmentAttribution -eq "cookie") {
     Clear-Host
     Write-Host "1. COOKIE - POD2"
     Write-Host "2. COOKIE - POD3 (POD4)"
@@ -38,6 +39,7 @@ if ($EnvironmentAttribution -eq "cookie") {
     Write-Host "Invalid Environment Attribution. Exiting..." -ForegroundColor Red
     exit
 }
+#>
 
 $EnvironmentStack = ($AWSVariables.Stack.ToLower())[0]
 $AvailabilityZonesDefaultServerType = "tnp"

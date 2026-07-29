@@ -192,7 +192,10 @@ $processNames = @(
     "Rundbb_CBRSendPIIRequest_Cookie2.exe",
     "Rundbb_BillPayPayment.exe",
     "Rundbb_LockBox.exe",
-    "Rundbb_AccountCreation.exe"
+    "Rundbb_AccountCreation.exe",
+    "Rundbb_MergeAccounts.exe",
+    "Rundbb_IPMSettlement.exe",
+    "Rundbb_BulkCardFileValidator.exe"
 )
 
 $results = @()

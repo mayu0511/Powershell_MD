@@ -1,4 +1,5 @@
 Clear-Host
+Get-ChildItem D:\ -Recurse | Unblock-File
 $Module = "Web-WCF"
 $ServerType = 'wcf'
 $ThisServer = (Hostname).ToLower()
