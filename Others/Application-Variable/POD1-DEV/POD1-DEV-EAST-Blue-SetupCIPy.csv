@@ -1,0 +1,24 @@
+Varaible Name,Value
+POD =,2
+EXECUTABLEPATH =,D:\CC_Runtime
+emKMSdefaultMachines =,cckmse1devb1 cckmse1devb2
+emKMSdefaultMachinesDR =,cckmsw2devb1 cckmsw2devb2
+DB_Server_NAME =,CCAPPLIST1
+DB_DSN_NAME =,LISTPLAT
+DB_Server_NAME_RPT,CCRPTLIST1
+DB_DSN_NAME_RPT,LISTRPT
+ODBC_Driver =,ODBC Driver 17 for SQL Server
+Cnst_API_url =,https://services.dev.api.cc-pod2.infra.marcus.com//CoreCardServices//CoreCardServices.svc//
+ses_smtp_secret_name =,ses-smtp-dev-secret
+ses_smtp_url =,email-smtp.us-east-1.amazonaws.com
+ses_region_name =,us-east-1
+alert_email_sender =,pod2-DEV-alerts@infra.marcus.com
+BatchScripts =,D:\DBBSetup\BatchScripts\CoreIssue
+CheckPIIData =,0
+PIIHubEnv =,DEV
+CBREmailFrom =,pod2-DEV-alerts@infra.marcus.com
+CBRNotifyEmail =,pod2-DEV-alerts@infra.marcus.com
+SqlOdbcDriver =,ODBC Driver 17 for SQL Server
+EnvironmentName =,DEV
+RetailEnvironment =,PRODUCTION
+POTBEnvironment =,

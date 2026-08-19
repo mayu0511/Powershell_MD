@@ -1,0 +1,16 @@
+Varaible Name,Value
+SET PrimaryDBServerODBCName=,LISTPLAT
+SET EXECUTABLEPATH=,D:\CC_runtime\
+SET emKMSdefaultMachines=,CCKMSe1PERFb1 CCKMSe1PERFb2 CCKMSe1PERFb3 CCKMSe1PERFb4 CCKMSe1PERFb5 CCKMSe1PERFb6 CCKMSe1PERFb7
+SET emThalesConnectionAddrBase=,perf.hsm.infra.marcus.com perf-apps.hsm.infra.marcus.com
+SET SCALE_SERVER_HOST=,CCWEBe1PERFb1
+SET Enviroment=,Testing
+SET TLS12Required=,YES
+SET Environment=,PLAT
+SET ICANumber=,019800
+SET GSINumber=,19804
+SET NetworkManagementInformationcode=,061
+SET CACertificate=,D:\\DBBSETup\\BatchScripts\\CoreAuth\\PRDBankNetCASubG2.pem
+SET emThalesMonitorInterval=,120
+SET emThalesCBTestInterval=,300
+SET SendActivateSessionOnReconnect=,1

@@ -1,0 +1,24 @@
+Varaible Name,Value
+POD =,2
+EXECUTABLEPATH =,D:\CC_Runtime
+emKMSdefaultMachines =,CCKMSE1PERFB1 CCKMSE1PERFB2 CCKMSE1PERFB3 CCKMSE1PERFB4 CCKMSE1PERFB5 CCKMSE1PERFB6 CCKMSE1PERFB7
+emKMSdefaultMachinesDR =,CCKMSW2PERFB1 CCKMSW2PERFB2 CCKMSW2PERFB3 CCKMSW2PERFB4 CCKMSW2PERFB5 CCKMSW2PERFB6 CCKMSW2PERFB7
+DB_Server_NAME =,CCAPPLIST1
+DB_DSN_NAME =,LISTPLAT
+DB_Server_NAME_RPT,CCRPTLIST1
+DB_DSN_NAME_RPT,LISTRPT
+ODBC_Driver =,SQL Server Native Client 11.0
+Cnst_API_url =,https://services.perf.api.cc-pod2.infra.marcus.com//CoreCardServices//CoreCardServices.svc//
+ses_smtp_secret_name =,ses-smtp-perf-secret
+ses_smtp_url =,email-smtp.us-east-1.amazonaws.com
+ses_region_name =,us-east-1
+alert_email_sender =,pod2-perf-alerts@infra.marcus.com
+BatchScripts =,D:\DBBSetup\BatchScripts\CoreIssue
+CheckPIIData =,0
+PIIHubEnv =,PERFPROD
+CBREmailFrom =,pod2-perf-alerts@infra.marcus.com
+CBRNotifyEmail =,"POD2ConfigTeam@corecard.com,PlatAlertSupport@corecard.com,PlatOperation@corecard.com"
+SqlOdbcDriver =,ODBC Driver 17 for SQL Server
+EnvironmentName =,PATPERF
+RetailEnvironment =,PERFPROD
+POTBEnvironment =,PERFPROD-POD2

@@ -61,7 +61,7 @@ if (($EnvironmentName -eq "prod" -or $EnvironmentName -eq "perf") -and ($Environ
 elseif (($EnvironmentName -eq "prod" -or $EnvironmentName -eq "uat2" -or $EnvironmentName -eq "mock") -and ($Environmentattributon -eq "jazz")){$ExpectedKMSServerCount = "7"}
 
 if($Environmentattributon -eq "JAZZ"){$ExpectedDATABASENAME = "CCJAZZ_KMS"}
-else{$ExpectedDATABASENAME = "CCGS_UATP_KMS"}
+else{$ExpectedDATABASENAME = "CCGS_UATP_KMS1"}
 $ExpectedKMSVersion = "3.7"
 $ExpectedKMSKEYSTATUS = "KMS is active"
 $ExpectedIMPORTSETTINGS = "1"
