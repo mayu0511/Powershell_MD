@@ -1,0 +1,24 @@
+Varaible Name,Value
+POD =,1
+EXECUTABLEPATH =,D:\CC_Runtime
+emKMSdefaultMachines =,CCKMSE1PATUATB1 CCKMSE1PATUATB2
+emKMSdefaultMachinesDR =,CCKMSW2PATUATB1 CCKMSW2PATUATB2
+DB_Server_NAME =,CCAPPLIST1
+DB_DSN_NAME =,LISTPLAT
+DB_Server_NAME_RPT,CCRPTLIST1
+DB_DSN_NAME_RPT,LISTRPT
+ODBC_Driver =,ODBC Driver 17 for SQL Server
+Cnst_API_url =,https://services.patuat.api.cc-pod1.infra.marcus.com//CoreCardServices//CoreCardServices.svc//
+ses_smtp_secret_name =,ses-smtp-patuat-secret
+ses_smtp_url =,email-smtp.us-east-1.amazonaws.com
+ses_region_name =,us-east-1
+alert_email_sender =,pod1-PATUAT-alerts@infra.marcus.com
+BatchScripts =,D:\DBBSetup\BatchScripts\CoreIssue
+CheckPIIData =,0
+PIIHubEnv =,PATUAT
+CBREmailFrom =,pod1-patuat-alerts@infra.marcus.com
+CBRNotifyEmail =,"PlatAlertSupport@corecard.com,POD1ConfigTeam@corecard.com,PlatOperation@corecard.com"
+SqlOdbcDriver =,ODBC Driver 17 for SQL Server
+EnvironmentName =,PLATUATP
+RetailEnvironment =,PATUAT
+POTBEnvironment =,PATUAT

@@ -1,0 +1,11 @@
+Varaible Name,Value
+MailFrom =,"""pod4-PROD-alerts@infra.marcus.com"""
+MailTo =,"""POD2ConfigTeam@corecard.com,gs-credit-cookie-cm-jobs@ny.email.gs.com,platalertsupport@corecard.com"""
+RetailEnvironment =,"""PRODUCTION"""
+RetailFileProcessingPOD =,"""POD4"""
+RetailAWS_secret_name =,"""ses-smtp-prod-secret"""
+RetailAWS_region_name =,"""us-west-2"""
+RetailSES_smtp_url,"""email-smtp.us-west-2.amazonaws.com"""
+RetailAWSPort,587
+POTBEnvironment =,"""PRODUCTION - POD4"""
+EnvironmentName =,"""PLATPROD"""

@@ -1,0 +1,16 @@
+Varaible Name,Value
+SET PrimaryDBServerODBCName=,LISTPLAT
+SET EXECUTABLEPATH=,D:\CC_Runtime\
+SET emKMSdefaultMachines=,CCKMSw2PRODb1 CCKMSw2PRODb2 CCKMSw2PRODb3 CCKMSw2PRODb4 CCKMSw2PRODb5 CCKMSw2PRODb6 CCKMSw2PRODb7
+SET emThalesConnectionAddrBase=,prod.hsm.infra.marcus.com prod-apps.hsm.infra.marcus.com
+SET SCALE_SERVER_HOST=,CCWEBw2PRODb1
+SET Enviroment=,Production
+SET TLS12Required=,YES
+SET Environment=,PLAT
+SET ICANumber=,19800
+SET GSINumber=,19805
+SET NetworkManagementInformationcode=,61
+SET CACertificate=,D:\\DBBSetup\\BatchScripts\\CoreAuth\\PRDBankNetCASubG2.pem
+SET emThalesMonitorInterval=,120
+SET emThalesCBTestInterval=,300
+SET SendActivateSessionOnReconnect=,1

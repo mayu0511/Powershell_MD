@@ -1,0 +1,24 @@
+Varaible Name,Value
+POD =,2
+EXECUTABLEPATH =,D:\CC_Runtime
+emKMSdefaultMachines =,cckmse1patqag1 cckmse1patqag2
+emKMSdefaultMachinesDR =,cckmsw2patqag1 cckmsw2patqag2
+DB_Server_NAME =,CCAPPLIST1
+DB_DSN_NAME =,LISTPLAT
+DB_Server_NAME_RPT,CCRPTLIST1
+DB_DSN_NAME_RPT,LISTRPT
+ODBC_Driver =,ODBC Driver 17 for SQL Server
+Cnst_API_url =,https://services.patqa.api.cc-pod1.infra.marcus.com//CoreCardServices//CoreCardServices.svc//
+ses_smtp_secret_name =,ses-smtp-patqa-secret
+ses_smtp_url =,email-smtp.us-east-1.amazonaws.com
+ses_region_name =,us-east-1
+alert_email_sender =,pod1-PATQA-alerts@infra.marcus.com
+BatchScripts =,D:\DBBSetup\BatchScripts\CoreIssue
+CheckPIIData =,0
+PIIHubEnv =,PATQA
+CBREmailFrom =,pod1-patqa-alerts@infra.marcus.com
+CBRNotifyEmail =,"PlatAlertSupport@corecard.com,POD1ConfigTeam@corecard.com,PlatOperation@corecard.com"
+SqlOdbcDriver =,ODBC Driver 17 for SQL Server
+EnvironmentName =,PLATPATQA
+RetailEnvironment =,PATQA
+POTBEnvironment =,PATQA

@@ -26,7 +26,7 @@ Write-Host "Environment Attribution: $EnvironmentAttribution"
 
 
 # Set server types to check
-$ServerTypeList = @('rps','rpd','bat','svc','iss','aut','tnp','awf','snk','src')
+$ServerTypeList = @('bat','rpd','rps','svc','iss','aut','tnp','awf','snk','src')
 $ServerList = @()
 
 # Fetch the servers
@@ -43,7 +43,7 @@ if ($ServerList.Count -eq 0) {
 }
 
 $ServerListNames = $ServerList.Name
-Read-Host "Please verify the server list and press enter to continue or press Ctrl+C to stop the script"
+#Read-Host "Please verify the server list and press enter to continue or press Ctrl+C to stop the script"
 
 # Invoke commands on servers to check ODBC drivers
 $option = New-PSSessionOption -ProxyAccessType NoProxyServer -OpenTimeout 20000

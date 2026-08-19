@@ -3,8 +3,8 @@
 # Version 1.0 | Initial Release | Date:: 04-April-2025
 # Version 4.5 | Updated for the CoreOps | Netra Chettri | Date:: 10 April 2026
 # Version 4.7 | Updated the PODID and Environment Name to remove the manaul location update | Netra Chettri | Date:: 5 May 2026
-# Version 4.8 | Updated Both Items CoreOpsAPIServer & CoreOpsWebServer| Rahul Bajpai | Date:: 27 July 2026
-#=====================================================================================================================
+# Version 4.8 | Updated Both Items CoreOpsAPIServer & CoreOpsWebServer Or Remove CoreOPS.zip Modify the Name QA Instead of OA| Rahul Bajpai | Date:: 27 July 2026 & 6 Aug 2026
+#=============================================================================================================================================================================
 
     Clear-Host
 
@@ -82,7 +82,7 @@
 	# Ask user to select environment
 	Write-Host "Select Environment:" -ForegroundColor Cyan
 	Write-Host "1. GSDEV"
-	Write-Host "2. GSOA"
+	Write-Host "2. GSQA"
 	Write-Host "3. GSUAT"
 	Write-Host "4. PATQA"
 	Write-Host "5. PATUAT"
@@ -95,7 +95,7 @@
 	# Map selection to folder
 	switch ($envChoice) {
 		"1" { $envName = "GSDEV" }
-		"2" { $envName = "GSOA" }
+		"2" { $envName = "GSQA" }
 		"3" { $envName = "GSUAT" }
 		"4" { $envName = "PATQA" }
 		"5" { $envName = "PATUAT" }
@@ -363,6 +363,7 @@ if ($zipConfirm -match '^[Yy]$') {
         "\Package\PlaceHolderFiles.zip",
         "\Package\PlaceHolderXlsFiles.zip",
         "\Package\ReleaseItem.zip",
+        "\Package\CoreOPS.zip",
         "\Package\KMS.zip",
         "\Package\CoreOpsAPIServer.zip",
 		"\Package\CoreOpsWebServer.zip",
@@ -1068,6 +1069,7 @@ if ($proceedDelete -notmatch '^[Yy]$') {
         "\Consolidated_Package\ReportDelivery\ReportDelivery\PDF_Kafka",
         "\Package\PlaceHolderFiles.zip",
         "\Package\PlaceHolderXlsFiles.zip",
+        "\Package\CoreOPS.zip",
         "\Package\ReleaseItem.zip",
 		"\Package\CoreOpsAPIServer.zip",
 		"\Package\CoreOpsWebServer.zip",

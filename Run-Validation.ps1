@@ -1,41 +1,46 @@
 ﻿####################################################################################################################################
 # Run CC Operational Scripts | Developed by: Mahendra Dwivedi
-# Date:** 16-Jul-2026
+# Version 1.0 | Date 16-Jul-2026
 ####################################################################################################################################
 
-
 $scripts = [ordered]@{
-    "1" = @{ Name = "Config Operations";   Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Config-Operations4.2.ps1";   Args = @() }
-    "2" = @{ Name = "SetupFile Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\SetupFile-Validation1.2.ps1";  Args = @() }
-    "3" = @{ Name = "Process Status Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Process-Status-Validation3.5.ps1";  Args = @() }
-    "4" = @{ Name = "ODBC Drivers Check";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\ODBC_DriversCheck.ps1";  Args = @() }
-    "5" = @{ Name = "ODBC Connection Check";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\ODBC_ConnectionCheck1.ps1";  Args = @() }
-    "6" = @{ Name = "Dbbtrace Error config Validatin";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\DbbtraceErrorconfig-Validatin1.2.ps1";  Args = @() }
-    "7" = @{ Name = "Batch Validation";   Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Batch-Validation1.7.ps1";   Args = @() }
-    "8" = @{ Name = "HMAC and SHA3DLL Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\HMAC_SHA3DLLValidation1.0.ps1";  Args = @() }
-    "9" = @{ Name = "Services WebSite Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Services-WebSite-Validation1.0.ps1";  Args = @() }
-    "10" = @{ Name = "CoreIssue WebSite Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\CoreIssue-WebSite-Validation.ps1";  Args = @() }
-    "11" = @{ Name = "Service APIHUB URL Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\ServiceAPIHUBURL-Validation4.1.ps1";  Args = @() }
-    "12" = @{ Name = "Services API Configuration Cert Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\ServicesAPIConfigurationCert-Validation.ps1";  Args = @() }
-    "13" = @{ Name = "Services API Configuration IP Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\ServicesAPIConfigurationIP-Validation1.0.ps1";  Args = @() }
-    "14" = @{ Name = "CoreCardServices Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\CoreCardServices-Validation.ps1";  Args = @() }
-    "15" = @{ Name = "NetworkmessageAPI Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\NetworkmessageAPI.ps1";  Args = @() }
-    "16" = @{ Name = "WCF Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\WCF-Validation.ps1";  Args = @() }
-    "17" = @{ Name = "CoreCredit WebSite Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\CoreCredit_WebSite-Validation2.3.ps1";  Args = @() }
-    "18" = @{ Name = "FileSplitter Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\FileSplitter-Validation3.6.ps1";  Args = @() }
-    "19" = @{ Name = "APIHUB Validation";     Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\APIHUB-Validation1.6.ps1";     Args = @() }
-    "20" = @{ Name = "KMS Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\KMS-Validation2.0.ps1";  Args = @() }
-    "21" = @{ Name = "KMS Recovery ResetValue Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\KMS-Recovery-ResetValue-Validation1.2.ps1";  Args = @() }
-    "22" = @{ Name = "ReportDelivery Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\ReportDelivery-Validation2.6.ps1";  Args = @() }
-    "23" = @{ Name = "ReportServer Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\ReportServer-Validation.ps1";  Args = @() }
-    "24" = @{ Name = "CoreOps WEBAPI Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\CoreOps-WEBAPIValidation1.1.ps1";  Args = @() }
-    "25" = @{ Name = "CoreOps App Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\CoreOps-AppValidation1.0.ps1";  Args = @() } 
-    "26" = @{ Name = "Backup Script";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\Backup_Script5.7.ps1";  Args = @() }
-    "27" = @{ Name = "Backup SS Script";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\Backup_SS_Script3.5.ps1";  Args = @() }
-    "28" = @{ Name = "Package Checksum match";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\PackageChecksummatchV12.ps1";  Args = @() }
-    "29" = @{ Name = "PlatformCode Delete";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\PlatformCodeDelete1.0.ps1";  Args = @() }
-    "30" = @{ Name = "User Change WCF AppPool";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\UserChange_WCFAppPool1.2.ps1";  Args = @() }
-    "31" = @{ Name = "Task Creator";  Path = "D:\Upload\Powershell_MD\Config_Operations_4.1\Occasionally_Use\Task-Creator1.0.ps1";  Args = @() }
+    "1" = @{ Name = "Config Operations";   Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Config-Operations4.3.ps1";   Args = @() }
+    "2" = @{ Name = "Application Variables Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\Variables-Validation1.6.ps1";  Args = @() }
+    "3" = @{ Name = "Application SetupFile Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\SetupFile-Validation1.2.ps1";  Args = @() }
+    "4" = @{ Name = "Application Process Status Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Process-Status-Validation3.5.ps1";  Args = @() }
+    "5" = @{ Name = "Application ODBC Drivers Check";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\ODBC_DriversCheck.ps1";  Args = @() }
+    "6" = @{ Name = "Application ODBC Connection Check";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\ODBC_ConnectionCheck1.ps1";  Args = @() }
+    "7" = @{ Name = "Application Dbbtrace Error config Validatin";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\DbbtraceErrorconfig-Validatin1.2.ps1";  Args = @() }
+    "8" = @{ Name = "Application Batch Validation";   Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Batch-Validation1.8.ps1";   Args = @() }
+    #"9" = @{ Name = "Application HMAC and SHA3DLL Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\HMAC_SHA3DLLValidation1.0.ps1";  Args = @() }
+    "10" = @{ Name = "Application RundbbEXE Count Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\RundbbEXE_CountValidation1.0.ps1";  Args = @() }
+    "11" = @{ Name = "Application ScaleFile Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\ScaleFile_Validation1.2.ps1";  Args = @() }
+    "12" = @{ Name = "Application MIPS Telnet Connection Test";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\MIPS_Telnet_ConnectionTest1.4.ps1";  Args = @() }
+    "13" = @{ Name = "Application Service APIHUBURL Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\ServiceAPIHUBURL-Validation4.1.ps1";  Args = @() }
+    "14" = @{ Name = "WEB Services WebSite Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Services-WebSite-Validation1.0.ps1";  Args = @() }
+    "15" = @{ Name = "WEB CoreIssue WebSite Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\CoreIssue-WebSite-Validation.ps1";  Args = @() }
+    "16" = @{ Name = "WEB Services API Configuration Cert Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\ServicesAPIConfigurationCert-Validation.ps1";  Args = @() }
+    "17" = @{ Name = "WEB Services API Configuration IP Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\ServicesAPIConfigurationIP-Validation1.0.ps1";  Args = @() }
+    "18" = @{ Name = "WEB Server Services URL Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Service-URL-Validation1.0.ps1";  Args = @() }
+    "19" = @{ Name = "WEB Server Certificate Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Cert-Validation1.0.ps1";  Args = @() }
+    "20" = @{ Name = "WCF CoreCardServices Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\CoreCardServices-Validation.ps1";  Args = @() }
+    "21" = @{ Name = "WCF NetworkmessageAPI Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\NetworkmessageAPI.ps1";  Args = @() }
+    "22" = @{ Name = "WCF Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\WCF-Validation.ps1";  Args = @() }
+    "23" = @{ Name = "E-WEB CoreCredit WebSite Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\CoreCredit_WebSite-Validation2.3.ps1";  Args = @() }
+    "24" = @{ Name = "FileSplitter Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\FileSplitter-Validation3.6.ps1";  Args = @() }
+    "25" = @{ Name = "APIHUB Validation";     Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\APIHUB-Validation1.6.ps1";     Args = @() }
+    "26" = @{ Name = "KMS Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\KMS-Validation2.0.ps1";  Args = @() }
+    "27" = @{ Name = "KMS Recovery ResetValue Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\KMS-Recovery-ResetValue-Validation1.2.ps1";  Args = @() }
+    "28" = @{ Name = "ReportDelivery Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\ReportDelivery-Validation2.6.ps1";  Args = @() }
+    "29" = @{ Name = "ReportServer Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\ReportServer-Validation.ps1";  Args = @() }
+    "30" = @{ Name = "CoreOps WEBAPI Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\CoreOps-WEBAPIValidation1.1.ps1";  Args = @() }
+    "31" = @{ Name = "CoreOps App Validation";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\CoreOps-AppValidation1.0.ps1";  Args = @() } 
+    "32" = @{ Name = "Backup Script";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\Backup_Script5.7.ps1";  Args = @() }
+    "33" = @{ Name = "Backup SS Script";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\Backup_SS_Script3.5.ps1";  Args = @() }
+    "34" = @{ Name = "Package Checksum match";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\PackageChecksummatchV12.ps1";  Args = @() }
+    "35" = @{ Name = "PlatformCode Delete";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\PlatformCodeDelete1.0.ps1";  Args = @() }
+    "36" = @{ Name = "User Change WCF AppPool";  Path = "D:\CC_Scripts\Powershell_MD\Config_Operations_4.1\Occasionally_Use\UserChange_WCFAppPool1.2.ps1";  Args = @() }
+    "37" = @{ Name = "Task Creator";  Path = "D:\Upload\Powershell_MD\Config_Operations_4.1\Occasionally_Use\Task-Creator1.0.ps1";  Args = @() }
     
 
    }

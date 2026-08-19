@@ -1,0 +1,24 @@
+Varaible Name,Value
+POD =,1
+EXECUTABLEPATH =,D:\CC_Runtime
+emKMSdefaultMachines =,cckmse1prodb1 cckmse1prodb2 cckmse1prodb3 cckmse1prodb4 cckmse1prodb5 cckmse1prodb6 cckmse1prodb7
+emKMSdefaultMachinesDR =,cckmsw2prodb1 cckmsw2prodb2 cckmsw2prodb3 cckmsw2prodb4 cckmsw2prodb5 cckmsw2prodb6 cckmsw2prodb7
+DB_Server_NAME =,CCAPPLIST1
+DB_DSN_NAME =,LISTPLAT
+DB_Server_NAME_RPT,CCRPTLIST1
+DB_DSN_NAME_RPT,LISTRPT
+ODBC_Driver =,SQL Server Native Client 11.0
+Cnst_API_url =,https://services.api.cc-pod1.infra.marcus.com//CoreCardServices//CoreCardServices.svc//
+ses_smtp_secret_name =,ses-smtp-prod-secret
+ses_smtp_url =,email-smtp.us-east-1.amazonaws.com
+ses_region_name =,us-east-1
+alert_email_sender =,pod1-PROD-alerts@infra.marcus.com
+BatchScripts =,D:\DBBSetup\BatchScripts\CoreIssue
+CheckPIIData =,1
+PIIHubEnv =,PROD
+CBREmailFrom =,pod1-PROD-alerts@infra.marcus.com
+CBRNotifyEmail =,pod1-PROD-alerts@infra.marcus.com
+SqlOdbcDriver =,ODBC Driver 17 for SQL Server
+EnvironmentName =,PLATPROD
+RetailEnvironment =,PRODUCTION
+POTBEnvironment =,PRODUCTION - POD1

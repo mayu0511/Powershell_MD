@@ -23,7 +23,7 @@ $AWSVariables = (aws ec2 describe-instances --query "Reservations[*].Instances[*
 $EnvironmentName = $AWSVariables.Environment.ToLower()
 $EnvironmentAttribution = $AWSVariables.Attribution.ToLower()
 
-<<#if ($EnvironmentAttribution -eq "cookie") {
+<#if ($EnvironmentAttribution -eq "cookie") {
     Clear-Host
     Write-Host "1. COOKIE - POD2"
     Write-Host "2. COOKIE - POD3 (POD4)"
@@ -45,7 +45,7 @@ $EnvironmentStack = ($AWSVariables.Stack.ToLower())[0]
 $AvailabilityZonesDefaultServerType = "tnp"
 $AvailabilityZones = ((aws ec2 describe-instances --query "Reservations[*].Instances[*].{AvailabilityZone:Placement.AvailabilityZone,IpAddress:PrivateIpAddress,Type:InstanceType,Name:Tags[?Key=='Name']|[0].Value,Status:State.Name}" --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values='*$AvailabilityZonesDefaultServerType$ShortRegion$EnvironmentName$EnvironmentStack*'" "Name=availability-zone,Values='*'" --region $Region | ConvertFrom-Json).AvailabilityZone) | Get-Unique
 
-$AvailabilityZone = Read-Host "Type Availability Zones your choice $AvailabilityZones or * for all zones"
+#$AvailabilityZone = Read-Host "Type Availability Zones your choice $AvailabilityZones or * for all zones"
 
 $ServerTypeList = @('bat', 'svc', 'iss', 'aut', 'src', 'snk', 'tnp', 'awf')
 $ServerList = @()
@@ -63,7 +63,7 @@ if (-not $ServerList) {
 
 $ServerList | Format-Table | Out-Host
 $ServerList = $ServerList.Name
-Read-Host "Please verify the server list above and press ENTER to continue..."
+#Read-Host "Please verify the server list above and press ENTER to continue..."
 
 # --- HASH COMPARISON SECTION ---
 Clear-Host

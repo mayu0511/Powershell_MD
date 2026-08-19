@@ -1,0 +1,11 @@
+Varaible Name,Value
+MailFrom =,"""pod1-PATQA-alerts@infra.marcus.com"""
+MailTo =,"""Pod2ConfigTeam@corecard.com,gs-credit-cookie-cm-jobs@ny.email.gs.com,platalertsupport@corecard.com"""
+RetailEnvironment =,"""PATQA"""
+RetailFileProcessingPOD =,"""POD1"""
+RetailAWS_secret_name =,"""ses-smtp-patqa-secret"""
+RetailAWS_region_name =,"""us-east-1"""
+RetailSES_smtp_url,"""email-smtp.us-east-1.amazonaws.com"""
+RetailAWSPort,587
+POTBEnvironment =,"""PATQA"""
+EnvironmentName =,"""PLAT PATQA"""

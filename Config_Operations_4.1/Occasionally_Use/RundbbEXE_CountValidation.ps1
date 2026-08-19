@@ -54,7 +54,7 @@ $AvailabilityZone = Read-Host "Type Availability Zones your choice $Availability
 
 $AvailabilityZone
 
-$ServerTypeList = @('bat' , 'svc')
+$ServerTypeList = @('svc', 'iss', 'aut', 'tnp', 'awf', 'src', 'snk', 'bat')
 $ServerType = $Null
 $ServerList = @()
 
